@@ -1,2 +1,35 @@
 <h1>Zahlungen hinzufügen</h1>
 
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>
+      Amount:
+      <input type="number" formControlName="amount" required>
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Type:
+      <input type="text" formControlName="type">
+    </label>
+  </div>
+
+  <div>
+  <label>
+    Description:
+    <input type="text" formControlName="description">
+  </label>
+</div>
+
+  <div>
+    <label>
+      Comment:
+      <textarea formControlName="comment" placeholder="Kommentare"></textarea>
+    </label>
+  </div>
+
+  <div class="actions">
+    <button type="submit" [disabled]="!paymentForm.valid">submit</button>
+  </div>
+</form>

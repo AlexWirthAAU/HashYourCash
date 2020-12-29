@@ -37,4 +37,8 @@ export class ApiService {
   public resetpw(userData) {
     return this.httpClient.post<any>(this.apiURL + '/forgotpw/reset', userData)
   }
+
+  public addPayment(payment){
+    return this.httpClient.post<any>(this.apiURL + '/', payment);
+  }
 }
