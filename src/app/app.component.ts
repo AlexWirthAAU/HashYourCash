@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { faWallet } from '@fortawesome/free-solid-svg-icons';
+import { faWallet, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,7 @@ export class AppComponent {
   contentClass: string;
   modalReference: any;
   faWallet = faWallet;
+  faMoneyBillWave = faMoneyBillWave;
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, public modalService: NgbModal) {
     this.loadUserData();
