@@ -6,6 +6,7 @@ import {ApiService} from '../../services/api.service';
 @Component({
   selector: 'app-payments-add',
   templateUrl: './payments.add.component.html',
+  styleUrls: ['./payments.add.component.css']
 })
 export class PaymentsAddComponent{
 paymentForm: any;
