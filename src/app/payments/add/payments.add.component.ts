@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ApiService} from '../../services/api.service';
+import {Payment} from '../../model/payment';
 
 @Component({
   selector: 'app-payments-add',
@@ -23,7 +24,7 @@ paymentForm: any;
   }
 
   onSubmit() {
-    const payment = {
+    const payment: Payment = {
       type: this.paymentForm.value.type,
       amount: this.paymentForm.value.amount,
       description: this.paymentForm.value.description,
