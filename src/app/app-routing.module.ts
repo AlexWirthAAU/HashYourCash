@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { ResetpwComponent } from './resetpw/resetpw.component';
 import {PaymentsOverviewComponent} from './payments/overview/payments.overview.component';
 import {PaymentsAddComponent} from './payments/add/payments.add.component';
+import { WalletsComponent } from './wallets/wallets.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,15 @@ const routes: Routes = [
   {
     path: 'payments',
     component: PaymentsOverviewComponent,
+  },
+  {
+    path: 'wallets',
+    pathMatch: 'full',
+    component: WalletsComponent
   }
+
+  // add my converter Path
+
 ];
 
 @NgModule({
