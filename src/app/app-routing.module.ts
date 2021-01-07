@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetpwComponent } from './resetpw/resetpw.component';
 import { WalletsComponent } from './wallets/wallets.component';
+
 
 
 const routes: Routes = [
@@ -26,7 +28,9 @@ const routes: Routes = [
     path: 'wallets',
     pathMatch: 'full',
     component: WalletsComponent
-  }
+  },
+
+ 
 
   // add my converter Path
 

@@ -19,6 +19,7 @@ export class AppComponent {
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, public modalService: NgbModal) {
     this.loadUserData();
+    this.contentClass = "content-area-85";
   }
 
   loadUserData() {

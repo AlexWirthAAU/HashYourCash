@@ -1,0 +1,49 @@
+div{
+    color: blue;
+   
+}
+
+body{
+    width: 100%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;   
+    border-width: 20px;
+       
+}
+html{
+    background-color: rgb(38, 38, 212);
+      border-radius: 30px;
+}
+h1{
+text-transform: uppercase;
+letter-spacing: 2px;
+color: white;
+font-size: xx-large;
+}
+
+input, select{
+    width: 250px;
+    height: 30px;
+    border: 5xp solid rgb(3, 3, 34);
+    border-radius: 10px;
+    
+}
+
+select{
+    width: 100px;
+    margin-left: 10px;
+    letter-spacing: 2px;
+  
+}
+
+span {
+color: white;
+font-size: 1em;
+font-weight: 700;
+font-size:xx-large;
+letter-spacing: 2px;
+
+}
+footer{
+    color: rgb(38, 38, 212);
+}
