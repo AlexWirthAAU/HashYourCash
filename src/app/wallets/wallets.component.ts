@@ -27,11 +27,8 @@ export class WalletsComponent implements OnInit {
     description: new FormControl(''),
     amount: new FormControl('')
   })
-  test: any;
-
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, private modalService: NgbModal) {
-   this.test = new FormControl('')
     this.home = "Haus";
    }
 
@@ -46,7 +43,12 @@ export class WalletsComponent implements OnInit {
     this.api.showW().subscribe(
       response => {
         this.allWallets = response
-        console.log(this.allWallets)
+        if(this.allWallets.length === 0) {
+          this.errorMessageW = "There are no wallets yet"
+        } else {
+          this.errorMessageW = null;
+        }
+        console.log(this.allWallets, this.errorMessageW)
       }, //success path
       error => {
         console.error(error)
@@ -58,16 +60,14 @@ export class WalletsComponent implements OnInit {
   if (this.walletData.value.name !== "" && this.walletData.value.description !== "" && this.walletData.value.amount !== "") {
     this.api.createW(this.walletData.value).subscribe(
       response => {
-        this.router.navigate(['/'])
+        this.router.navigate(['/wallets'])
+        this.showWallets()
       }, //success path
       error => {
         console.error(error)
       } //error path
     );
   }}
-  checkWallets(){
-  if(this.allWallets === undefined || 0) {
-    this.errorMessageW = "There are no wallets yet"
-  }}
+
 }
 
