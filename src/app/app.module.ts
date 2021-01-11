@@ -14,6 +14,7 @@ import { ResetpwComponent } from './resetpw/resetpw.component';
 import { ConverterComponent } from './converter/converter.component';
 import { TickersComponent } from './converter/tickers/tickers.component';
 import { WalletsComponent } from './wallets/wallets.component';
+import { CurrencyTickerstComponent } from './converter/currency-tickerst/currency-tickerst.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { WalletsComponent } from './wallets/wallets.component';
     ResetpwComponent,
     ConverterComponent,
     TickersComponent,
-    WalletsComponent
+    WalletsComponent,
+    CurrencyTickerstComponent
   ],
   imports: [
     ReactiveFormsModule,

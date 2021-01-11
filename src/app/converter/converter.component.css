@@ -1,6 +1,13 @@
 div{
-    color: blue;
+    color: rgb(240, 47, 47);
    
+}
+.convert{
+    padding:10px;
+}
+.entspricht{
+    margin-right: 100px;
+
 }
 
 body{
@@ -11,13 +18,13 @@ body{
        
 }
 html{
-    background-color: rgb(38, 38, 212);
+    background-color: rgb(255, 255, 255);
       border-radius: 30px;
 }
 h1{
 text-transform: uppercase;
 letter-spacing: 2px;
-color: white;
+color: rgb(0, 0, 0);
 font-size: xx-large;
 }
 
@@ -37,7 +44,7 @@ select{
 }
 
 span {
-color: white;
+color: rgb(0, 0, 0);
 font-size: 1em;
 font-weight: 700;
 font-size:xx-large;

@@ -1,0 +1,14 @@
+#fx-pricing-widget-copyright {
+    text-align: center;
+    font-size: 13px;
+    font-family: sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #9db2bd;
+}
+
+#fx-pricing-widget-copyright a {
+    text-decoration: unset;
+    color: #bb3534;
+    font-weight: 600;
+}
