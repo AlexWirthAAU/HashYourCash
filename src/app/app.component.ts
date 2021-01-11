@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { faWallet } from '@fortawesome/free-solid-svg-icons';
+import { faWallet} from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-root',

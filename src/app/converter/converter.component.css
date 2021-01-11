@@ -1,12 +1,15 @@
-div{
-    color: rgb(240, 47, 47);
-   
-}
+
 .convert{
     padding:10px;
+    margin-left: 300px;
+   
 }
 .entspricht{
-    margin-right: 100px;
+letter-spacing: 2px;
+color: rgb(0, 0, 0);
+font-size: xx-large;
+margin-left: 48px;
+    padding: 10px;
 
 }
 
@@ -26,6 +29,7 @@ text-transform: uppercase;
 letter-spacing: 2px;
 color: rgb(0, 0, 0);
 font-size: xx-large;
+margin-left: 250px;
 }
 
 input, select{
