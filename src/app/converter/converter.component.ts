@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Converter } from "../../modules/Converter";
 
 @Component({
   selector: 'app-converter',

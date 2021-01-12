@@ -358,7 +358,7 @@
   .bottom-menu {
     position: absolute;
     left: 0;
-    bottom: 60px;
+    bottom: 5%;
     width: 100%;
     text-align: center;
   }
