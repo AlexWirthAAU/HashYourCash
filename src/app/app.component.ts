@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { faWallet} from '@fortawesome/free-solid-svg-icons';
-
+import { faWallet, faExchangeAlt, faChartPie } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +16,12 @@ export class AppComponent {
   contentClass: string;
   modalReference: any;
   faWallet = faWallet;
+  faConverter = faExchangeAlt;
+  faChartPie = faChartPie;
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, public modalService: NgbModal) {
     this.loadUserData();
-    this.contentClass = "content-area-85";
+    this.contentClass = "content-area-100";
   }
 
   loadUserData() {

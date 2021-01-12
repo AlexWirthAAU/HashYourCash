@@ -14,6 +14,7 @@ import { ResetpwComponent } from './resetpw/resetpw.component';
 import { ConverterComponent } from './converter/converter.component';
 import { TickersComponent } from './converter/tickers/tickers.component';
 import { WalletsComponent } from './wallets/wallets.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 import { CurrencyTickerstComponent } from './converter/currency-tickerst/currency-tickerst.component';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { CurrencyTickerstComponent } from './converter/currency-tickerst/currenc
     ConverterComponent,
     TickersComponent,
     WalletsComponent,
+    StatisticsComponent,
     CurrencyTickerstComponent
   ],
   imports: [
