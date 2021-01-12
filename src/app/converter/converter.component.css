@@ -1,24 +1,26 @@
-div{
-    color: blue;
+
+.convert{
+    padding:10px;
+    margin-left: 300px;
    
 }
+.entspricht{
+letter-spacing: 2px;
+color: rgb(0, 0, 0);
+font-size: xx-large;
+margin-left: 48px;
+    padding: 10px;
 
-body{
-    width: 100%;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;   
-    border-width: 20px;
-       
 }
-html{
-    background-color: rgb(38, 38, 212);
-      border-radius: 30px;
-}
+
+
+
 h1{
 text-transform: uppercase;
 letter-spacing: 2px;
-color: white;
+color: rgb(0, 0, 0);
 font-size: xx-large;
+margin-left: 250px;
 }
 
 input, select{
@@ -37,7 +39,7 @@ select{
 }
 
 span {
-color: white;
+color: rgb(0, 0, 0);
 font-size: 1em;
 font-weight: 700;
 font-size:xx-large;

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ConverterComponent } from './converter/converter.component';
 
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
 import { RegisterComponent } from './register/register.component';
@@ -41,9 +42,15 @@ const routes: Routes = [
     pathMatch: 'full',
     component: StatisticsComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'converter',
+    pathMatch: 'full',
+    component: ConverterComponent,
+    canActivate: [AuthGuard]
   }
 
- 
+  
 
   // add my converter Path
 

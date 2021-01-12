@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { faWallet, faChartPie } from '@fortawesome/free-solid-svg-icons';
+import { faWallet, faExchangeAlt, faChartPie } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +12,11 @@ import { faWallet, faChartPie } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'HashYourCash';
-  showMenu: boolean = false;
+  showMenu: boolean = true;
   contentClass: string;
   modalReference: any;
   faWallet = faWallet;
+  faConverter = faExchangeAlt;
   faChartPie = faChartPie;
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, public modalService: NgbModal) {

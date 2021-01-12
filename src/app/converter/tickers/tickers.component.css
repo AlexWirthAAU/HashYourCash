@@ -1,7 +1,14 @@
 div{
-    background-color: blue;
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
+    
 }
-EurUsd {
-float: left;
+
+.widget {
+    top: 43px;
+    padding: 15px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 848px;
+ 
 }
