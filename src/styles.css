@@ -264,7 +264,7 @@
     width: 100%;
     top: 0;
     z-index: 99;
-    background: #264C72;
+    background: #064d6e;
     -webkit-box-shadow: 0px 4px 10px 0px rgba(128, 128, 128, 1);
     -moz-box-shadow: 0px 4px 10px 0px rgba(128, 128, 128, 1);
     box-shadow: 0px 4px 10px 0px rgba(128, 128, 128, 1);
@@ -370,6 +370,18 @@
     padding-left: 25%;
     padding-right: 25%;
   }
+
+  .register-logo {
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.register-logo img {
+    width: 100%;
+    height: auto;
+}
 
 
 

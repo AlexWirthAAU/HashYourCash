@@ -4,6 +4,9 @@
             <div class="col-xl-12">
                 <div class="main-wrapper">
                     <div class="text-center pt-5 mb-20">
+                        <div class="register-logo">
+                            <img [src]=logo>
+                        </div>
                         <h2>Registrierung</h2>
                         <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()"
                             [ngClass]="{'was-validated':formValidation == true}">
