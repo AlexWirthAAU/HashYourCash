@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   formData: any;
   formValidation: boolean = false;
   wrongPassword: string = null;
+  logo: string = "assets/images/logo.png"
 
   constructor(public auth: AuthService, public api: ApiService) {
     this.formData = new FormGroup({

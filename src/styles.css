@@ -264,7 +264,7 @@
     width: 100%;
     top: 0;
     z-index: 99;
-    background: #264C72;
+    background: #064d6e;
     -webkit-box-shadow: 0px 4px 10px 0px rgba(128, 128, 128, 1);
     -moz-box-shadow: 0px 4px 10px 0px rgba(128, 128, 128, 1);
     box-shadow: 0px 4px 10px 0px rgba(128, 128, 128, 1);
@@ -326,6 +326,63 @@
     text-align: center;
   }
 
+  .single-login {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+  }
+
+  .single-login img {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 62px;
+    font-weight: bold;
+  }
+
+  .main-wrapper {
+    padding-top: 100px;
+    width: 850px;
+    margin: 0 auto;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .bottom-menu {
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .bottom-menu img {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+
+  .register-logo {
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.register-logo img {
+    width: 100%;
+    height: auto;
+}
+
 
 
   /* Responsive Styles */
@@ -348,6 +405,11 @@
     svg#rocket-smoke {
       right: 120px;
       transform: rotate(-5deg);
+    }
+
+    .main-wrapper {
+      width: 100%;
+      margin: 0 auto;
     }
   }
 
