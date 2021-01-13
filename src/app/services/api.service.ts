@@ -67,8 +67,8 @@ export class ApiService {
       {
         type: 'in',
         amount: 20,
-        description: '',
-        comment: '',
+        description: 'test1',
+        comment: 'test2',
         pe_id: 1,
         w_id: walletID,
         c_id: 1,
@@ -77,7 +77,7 @@ export class ApiService {
       {
         type: 'out',
         amount: 10,
-        description: '',
+        description: 'test3',
         comment: '',
         pe_id: 1,
         w_id: walletID,
