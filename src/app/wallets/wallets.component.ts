@@ -4,7 +4,7 @@ import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms';
-import { faHome, faCarSide, faCar } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCarSide} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-wallets',
@@ -39,7 +39,6 @@ export class WalletsComponent implements OnInit {
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
   }
   showWallets():void{
-    console.log("works")
     this.api.showW().subscribe(
       response => {
         this.allWallets = response
@@ -48,7 +47,6 @@ export class WalletsComponent implements OnInit {
         } else {
           this.errorMessageW = null;
         }
-        console.log(this.allWallets, this.errorMessageW)
       }, //success path
       error => {
         console.error(error)
@@ -60,14 +58,23 @@ export class WalletsComponent implements OnInit {
   if (this.walletData.value.name !== "" && this.walletData.value.description !== "" && this.walletData.value.amount !== "") {
     this.api.createW(this.walletData.value).subscribe(
       response => {
-        this.router.navigate(['/wallets'])
         this.showWallets()
+        //this.router.navigate(['/wallets'])
       }, //success path
       error => {
         console.error(error)
       } //error path
     );
   }}
-
+  /*deleteWallet(elem){
+    this.api.deleteW(elem.w_id).subscribe(
+      response => {
+        this.router.navigate(['/wallets'])
+        this.showWallets()
+      }, //success path
+      error => {
+        console.error(error)
+      } //error path
+    )}*/
 }
 
