@@ -11,7 +11,6 @@ import { faHome, faCarSide} from '@fortawesome/free-solid-svg-icons';
   selector: 'app-wallets',
   templateUrl: './wallets.component.html',
   styleUrls: ['./wallets.component.css'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class WalletsComponent implements OnInit {
 
