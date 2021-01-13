@@ -14,9 +14,9 @@
       <div class="col-8 align-self-center">
         <div class="text-center title-name" style="color: white">
           <span>{{auth.getUser()?.first_name}} {{auth.getUser()?.last_name}}</span>
-          <br>
-          <span *ngIf="walletName">{{walletName}}</span>
-          <br>
+          
+          <span *ngIf="walletName"> - {{walletName}}: </span>
+         
           <span *ngIf="walletAmount">{{walletAmount}} €</span>
         </div>
       </div>
@@ -44,7 +44,6 @@
         <fa-icon [icon]="faConverter" size="3x"></fa-icon><br>
         Währungsrechner
       </a>
-
 
       <div class="bottom-menu">
         <img src="assets/images/logo.png">
