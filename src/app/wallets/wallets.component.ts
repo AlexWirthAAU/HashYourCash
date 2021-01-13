@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
+import {WalletService} from '../services/wallet.service'
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms';
 import { faHome, faCarSide} from '@fortawesome/free-solid-svg-icons';
@@ -27,9 +28,10 @@ export class WalletsComponent implements OnInit {
     description: new FormControl(''),
     amount: new FormControl('')
   })
+  @Input()  currentWallet: number;
 
-  constructor(public auth: AuthService, public api: ApiService, public router: Router, private modalService: NgbModal) {
-    this.home = "Haus";
+  constructor(public auth: AuthService, public api: ApiService, public router: Router, private modalService: NgbModal, public walletService: WalletService) {
+
    }
 
   ngOnInit(): void {
@@ -38,10 +40,17 @@ export class WalletsComponent implements OnInit {
   openBackDropCustomClass(content) {
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
   }
+saveWalletId(elem):void{
+  this.currentWallet = elem.w_id;
+  this.walletService.getWalletId(this.currentWallet);
+}
+
+
   showWallets():void{
     this.api.showW().subscribe(
       response => {
-        this.allWallets = response
+        this.allWallets = response;
+        //this.router.navigate(['/wallets'])
         if(this.allWallets.length === 0) {
           this.errorMessageW = "There are no wallets yet"
         } else {
