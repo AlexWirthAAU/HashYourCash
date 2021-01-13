@@ -4,7 +4,7 @@ import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 import {WalletService} from '../services/wallet.service'
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faHome, faCarSide} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -22,13 +22,15 @@ export class WalletsComponent implements OnInit {
   profileForm: any;
   allWallets: any;
   errorMessageW: string;
+  user: any;
+  currentWallet: number;
 
   walletData = new FormGroup({
-    name: new FormControl(''),
+    name: new FormControl('', Validators.required),
     description: new FormControl(''),
-    amount: new FormControl('')
+    amount: new FormControl('', Validators.required)
   })
-  @Input()  currentWallet: number;
+
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, private modalService: NgbModal, public walletService: WalletService) {
 
@@ -43,6 +45,11 @@ export class WalletsComponent implements OnInit {
 saveWalletId(elem):void{
   this.currentWallet = elem.w_id;
   this.walletService.getWalletId(this.currentWallet);
+}
+
+saveWallet(elem):void{
+  this.user = elem;
+  this.walletService.getWalletData(this.user);
 }
 
 
@@ -67,7 +74,8 @@ saveWalletId(elem):void{
   if (this.walletData.value.name !== "" && this.walletData.value.description !== "" && this.walletData.value.amount !== "") {
     this.api.createW(this.walletData.value).subscribe(
       response => {
-        this.showWallets()
+        this.showWallets();
+        this.modalService.dismissAll();
         //this.router.navigate(['/wallets'])
       }, //success path
       error => {
