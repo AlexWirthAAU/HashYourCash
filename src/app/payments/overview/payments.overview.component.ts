@@ -19,6 +19,8 @@ export class PaymentsOverviewComponent implements OnInit {
     this.displayedColumns = [
       'type',
       'amount',
+      'description',
+      'comment'
     ];
   }
 
