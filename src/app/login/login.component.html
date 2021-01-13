@@ -3,6 +3,9 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="main-wrapper">
+                    <div class="single-login">
+                        <img [src]=logo>
+                    </div>
                     <div class="text-center">
                         <img style="width:20%" src="">
                         <h2 class="title">HashYourCash</h2>
@@ -10,9 +13,7 @@
                     <div class="text-center">
                         <p class="subtitle">Tracke deine Einnahmen und Ausgaben</p>
                     </div>
-                    <div class="single-login">
-                        <img [src]=logo>
-                    </div>
+                    
                     <div class="text-center pt-5 mb-20">
                         <h2 class="">Anmelden</h2>
                     </div>
@@ -42,12 +43,12 @@
                             <div *ngIf="wrongPassword != null" class="alert alert-danger" role="alert">{{wrongPassword}}</div>
                             <button type="submit" class="btn btn-secondary btn-block">Einloggen</button>
                             <div style="text-align: center">
-                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'forgotpw'">Passwort vergessen?</a>
+                                <a class="text-center pt-3" style="font-size:1.2em; color: black" [routerLink]="'forgotpw'">Passwort vergessen?</a>
                             </div>
                             <br>
                             <h3 class="text-center pt-3">Du besitzt noch kein Konto?</h3>
                             <div style="text-align: center">
-                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'register'">...dann kannst du dich hier registrieren
+                                <a class="text-center pt-3" style="font-size:1.2em; color:black" [routerLink]="'register'">...dann kannst du dich hier registrieren
                                  </a><i class="fa fa-sign-in"></i>
                             </div>
                         </div>
