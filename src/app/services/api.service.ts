@@ -107,4 +107,15 @@ export class ApiService {
     ];
     return of(payments);
   }
+
+  public createW(userData) {
+    return this.httpClient.post<any>(this.apiURL + '/wallets', userData, { headers: new HttpHeaders({'Authorization': localStorage.getItem('access_token')})})
+  }
+
+  public showW() {
+    return this.httpClient.get<any[]>(this.apiURL + '/wallets', { headers: new HttpHeaders({'Authorization': localStorage.getItem('access_token')})})
+  }
+  /*public deleteW(walletID) {
+    return this.httpClient.delete<any>(this.apiURL + '/wallets', walletID, { headers: new HttpHeaders({'Authorization': localStorage.getItem('access_token')})})
+  }*/
 }

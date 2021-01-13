@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ export class AuthService {
   private user: any;
   apiURL: string;
 
-  constructor(public httpClient: HttpClient) {
+  constructor(public httpClient: HttpClient, public router: Router) {
     this.apiURL = "https://hashyourcash.herokuapp.com";
   }
  
@@ -37,8 +38,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('access_token');
-    window.location.reload();
-    //@Zoë FIX when logout then last opened tab (e.g. wallets) still visible
+    this.router.navigate(['/'])
   }
 
   public loggedIn(): boolean {

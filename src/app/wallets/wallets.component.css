@@ -1,0 +1,34 @@
+a:visited{
+  color:white;
+}  
+  
+  .light-blue-backdrop {
+    background-color: #5cb3fd;
+  }
+  .allcats {
+    display: inline-flex;
+  }
+  .categories {
+    display: flex;
+    margin-left: 10px;
+    justify-content: center;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+  }
+ .categories>fa-icon {
+   align-self: center;
+   color: white;
+ }
+  .Haus {
+    background-color: red;
+  }
+
+  .Auto {
+    background-color: green;
+  }
+
+  .card {
+    width: auto;
+    height: auto;
+  }

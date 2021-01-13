@@ -1,0 +1,51 @@
+
+.convert{
+    padding:10px;
+    margin-left: 300px;
+   
+}
+.entspricht{
+letter-spacing: 2px;
+color: rgb(0, 0, 0);
+font-size: xx-large;
+margin-left: 48px;
+    padding: 10px;
+
+}
+
+
+
+h1{
+text-transform: uppercase;
+letter-spacing: 2px;
+color: rgb(0, 0, 0);
+font-size: xx-large;
+margin-left: 250px;
+}
+
+input, select{
+    width: 250px;
+    height: 30px;
+    border: 5xp solid rgb(3, 3, 34);
+    border-radius: 10px;
+    
+}
+
+select{
+    width: 100px;
+    margin-left: 10px;
+    letter-spacing: 2px;
+  
+}
+
+span {
+color: rgb(0, 0, 0);
+font-size: 1em;
+font-weight: 700;
+font-size:xx-large;
+letter-spacing: 2px;
+
+}
+footer{
+    color: rgb(38, 38, 212);
+}

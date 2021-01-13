@@ -15,6 +15,8 @@ export class RegisterComponent implements OnInit {
   userEmails: any;
   passwordErr: string = null;
   emailErr: string = null;
+  logo: string = "assets/images/Logo_Banner_integrate.png";
+
 
   constructor(public api: ApiService, public router: Router) {
     this.formData = new FormGroup({
@@ -24,12 +26,10 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', Validators.required),
       confirm_password: new FormControl('', Validators.required)
     })
-
-    this.getAllEmails();
   }
 
   ngOnInit(): void {
-
+    this.getAllEmails();
   }
 
   getAllEmails() {
@@ -53,6 +53,7 @@ export class RegisterComponent implements OnInit {
         if (this.checkEmail()) {
           this.api.register(this.formData.value).subscribe(
             response => {
+              console.log("Successfully registered")
               this.router.navigate(['/'])
             }, //success path
             error => {
@@ -66,7 +67,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  checkEmail(): boolean {
+  checkEmail() {
     let resultArr = this.userEmails.filter(x => x && x.email && x.email === this.formData.value.email);
     if (resultArr.length > 0) {
       this.emailErr = "E-Mail Adresse ist schon vergeben."
@@ -75,6 +76,10 @@ export class RegisterComponent implements OnInit {
       this.emailErr = null;
       return true;
     }
+
   }
+
+
+
 
 }

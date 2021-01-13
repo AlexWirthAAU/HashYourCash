@@ -16,8 +16,11 @@ import {PaymentsOverviewComponent} from './payments/overview/payments.overview.c
 import {PaymentsAddComponent} from './payments/add/payments.add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConverterComponent } from './converter/converter.component';
+import { TickersComponent } from './converter/tickers/tickers.component';
 import { WalletsComponent } from './wallets/wallets.component';
 import {MaterialModule} from './material.module';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { CurrencyTickerstComponent } from './converter/currency-tickerst/currency-tickerst.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import {MaterialModule} from './material.module';
     PaymentsOverviewComponent,
     PaymentsAddComponent,
     ConverterComponent,
+    TickersComponent,
     WalletsComponent,
+    StatisticsComponent,
+    CurrencyTickerstComponent
   ],
   imports: [
     ReactiveFormsModule,

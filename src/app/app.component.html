@@ -1,4 +1,5 @@
-<div *ngIf="!auth.loggedIn() && router.url !== '/register' && router.url !=='/forgotpw' && !router.url.includes('resetpw')">
+<div
+  *ngIf="!auth.loggedIn() && router.url !== '/register' && router.url !=='/forgotpw' && !router.url.includes('resetpw')">
   <app-login></app-login>
 </div>
 
@@ -6,13 +7,15 @@
   <div class="header-top">
     <div class="row ">
       <div class="col ml-3">
-        <div class="icon ">
+        <div class="icon">
           <div class="menu-open" (click)='toggleMenu()'><i style="font-size: 20px;" class="fa fa-bars"></i></div>
         </div>
       </div>
       <div class="col-8 align-self-center">
         <div class="text-center title-name" style="color: white">
           <span>{{auth.getUser()?.first_name}} {{auth.getUser()?.last_name}}</span>
+          <span *ngIf="walletName"> - {{walletName}}: </span>
+          <span *ngIf="walletAmount">{{walletAmount}} €</span>
         </div>
       </div>
       <div class="col mr-3">
@@ -31,6 +34,20 @@
         <fa-icon [icon]="faWallet" size="3x"></fa-icon><br>
         Meine Wallets
       </a>
+      <a routerLink="statistics" routerLinkActive="active">
+        <fa-icon [icon]="faChartPie" size="3x"></fa-icon><br>
+        Statistik
+      </a>
+      <a routerLink="converter" routerLinkActive="active">
+        <fa-icon [icon]="faConverter" size="3x"></fa-icon><br>
+        Währungsrechner
+      </a>
+
+
+      <div class="bottom-menu">
+        <img src="assets/images/logo.png">
+        <p>HashYourCash</p>
+      </div>
 
 
       <a routerLink="/payments">
@@ -53,9 +70,12 @@
   </div>
   <div class="modal-body">
     <button type="button" class="btn btn-secondary btn-block"
-      (click)="modalService.dismissAll(); auth.logout()">Ausloggen</button>
+      (click)="modalService.dismissAll(); auth.logout(); resetWData()">Ausloggen</button>
   </div>
 </ng-template>
 
-<router-outlet></router-outlet>
-
+<div [className]="contentClass">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
