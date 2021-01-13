@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {Payment} from '../model/payment';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -44,73 +45,33 @@ export class ApiService {
     return this.httpClient.post<any>(this.apiURL + '/forgotpw/reset', userData);
   }
 
-  public addPayment(payment: Payment){
-    return this.httpClient.post<any>(this.apiURL + '/', payment);
+  public addPayment(payment: Payment) {
+    return this.httpClient.post<any>(this.apiURL + '/payments', payment,
+      {
+        headers: new HttpHeaders({
+          Authorization: localStorage.getItem('access_token')
+        })
+      });
   }
-  public getPayments(userID, walletID): Observable<Payment[]>{
-    const payments: Payment[] = [
+
+  public getPayments(userID, walletID): Observable<Payment[]> {
+    return this.httpClient.get<Payment[]>(this.apiURL + '/payments/' + walletID,
       {
-        type: 'in',
-        amount: 100,
-        description: '',
-        comment: '',
-        pe_id: 1,
-        w_id: walletID,
-        c_id: 1,
-        entry_date: new Date('2012-01-05'),
-      },
+        headers: new HttpHeaders({
+          Authorization: localStorage.getItem('access_token')
+        })
+      });
+  }
+
+  public deletePayment(paymentId): Observable<boolean> {
+    return this.httpClient.delete<any>(this.apiURL + '/payments/' + paymentId,
       {
-        type: 'out',
-        amount: 400,
-        description: '',
-        comment: '',
-        pe_id: 1,
-        w_id: walletID,
-        c_id: 1,
-        entry_date: new Date('2012-01-03'),
-      },
-      {
-        type: 'in',
-        amount: 20,
-        description: 'test1',
-        comment: 'test2',
-        pe_id: 1,
-        w_id: walletID,
-        c_id: 1,
-        entry_date: new Date('2012-01-01'),
-      },
-      {
-        type: 'out',
-        amount: 10,
-        description: 'test3',
-        comment: '',
-        pe_id: 1,
-        w_id: walletID,
-        c_id: 1,
-        entry_date: new Date('2012-01-03'),
-      },
-      {
-        type: 'in',
-        amount: 900,
-        description: '',
-        comment: '',
-        pe_id: 1,
-        w_id: walletID,
-        c_id: 1,
-        entry_date: new Date('2012-01-05'),
-      },
-      {
-        type: 'out',
-        amount: 100,
-        description: '',
-        comment: '',
-        pe_id: 1,
-        w_id: walletID,
-        c_id: 1,
-        entry_date: new Date('2012-01-05'),
-      },
-    ];
-    return of(payments);
+        headers: new HttpHeaders({
+          Authorization: localStorage.getItem('access_token')
+        })
+      }).pipe(
+      map(res => res.statusCode === 200)
+    );
   }
 
   public createW(userData) {
