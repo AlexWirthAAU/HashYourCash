@@ -92,7 +92,6 @@ export class ApiService {
       });
   }
 
-<<<<<<< HEAD
   public getPaymentsByDate(period, walletId) {
     return this.httpClient.post<any>(this.apiURL + '/payments/period/' + walletId, period,
     {
@@ -119,9 +118,7 @@ export class ApiService {
         })
       });
   }*/
-=======
   public deleteW(walletID) {
     return this.httpClient.delete<any>(this.apiURL + '/wallets', { headers: new HttpHeaders({'Authorization': localStorage.getItem('access_token')})})
   }
->>>>>>> 4f6eae1746e7f23299361b31dbd91dba196d75fc
 }
