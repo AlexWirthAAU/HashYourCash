@@ -10,7 +10,7 @@
         <p class="card-text">{{elem.description}}</p>
         <br>
         <button type="button" class="btn btn-primary" (click)="saveWalletId(elem); saveWallet(elem)">Go Somewhere</button>
-        <button type="button" class="btn btn-danger">Delete</button> <!--(click)="deleteWallet(elem)"-->
+        <button type="button" class="btn btn-danger" (click)="saveWalletId(elem)">Delete</button> <!--(click)="deleteWallet(elem)"-->
       </div>
     </div>
     <div>
