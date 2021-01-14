@@ -15,9 +15,11 @@ export class ConverterComponent implements OnInit {
     const select = document.querySelectorAll("select");
     const input: any = document.querySelectorAll("input");
    
-    const api_URL = "https://data.fixer.io/api/latest?access_key=87492957e71943fca9a7a8dd3e18e935";
+    const api_URL = "http://data.fixer.io/api/latest?access_key=87492957e71943fca9a7a8dd3e18e935";
     //const api_URL = "https://api.nomics.com/v1"
     let html = "";
+
+
 
     async function currency() {
       const result = await fetch(api_URL);
@@ -29,7 +31,7 @@ export class ConverterComponent implements OnInit {
       const rates = data.rates;
       //console.log(rates);
 
-
+    
       arrKeys.map(item => {
         return html += `<option value=${item}>${item}</option>`;
       });
@@ -41,8 +43,6 @@ export class ConverterComponent implements OnInit {
       //console.log(rates[select[0].value]) //rates
 
     
-
-
       input[0].addEventListener("keyup", () => {
         input[1].value = input[0].value * rates[select[1].value] / rates[select[0].value];
       })
@@ -61,11 +61,8 @@ export class ConverterComponent implements OnInit {
       })
 
     };
-    currency();
 
-
-    
   }
-
-}
+    currency();
+  }
 }
