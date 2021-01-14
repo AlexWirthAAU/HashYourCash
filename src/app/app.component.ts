@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
-import {WalletService} from './services/wallet.service'
+import {WalletService} from './services/wallet.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { faWallet, faExchangeAlt, faChartPie } from '@fortawesome/free-solid-svg-icons';
+import { faWallet, faMoneyBillWave, faExchangeAlt, faChartPie } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +17,7 @@ export class AppComponent {
   contentClass: string;
   modalReference: any;
   faWallet = faWallet;
+  faMoneyBillWave = faMoneyBillWave;
   faConverter = faExchangeAlt;
   faChartPie = faChartPie;
   walletName: any;
@@ -30,7 +31,7 @@ export class AppComponent {
     this.walletAmount = currentData.amount;
     })
   }
-  
+
   resetWData(){
     this.walletName = null;
     this.walletAmount = null;

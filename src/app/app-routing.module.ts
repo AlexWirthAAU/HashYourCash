@@ -5,6 +5,8 @@ import { ConverterComponent } from './converter/converter.component';
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetpwComponent } from './resetpw/resetpw.component';
+import {PaymentsOverviewComponent} from './payments/overview/payments.overview.component';
+import {PaymentsAddComponent} from './payments/add/payments.add.component';
 import { AuthGuard } from './services/auth.guard';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { WalletsComponent } from './wallets/wallets.component';
@@ -33,6 +35,14 @@ const routes: Routes = [
     component: ResetpwComponent
   },
   {
+    path: 'payments/add',
+    component: PaymentsAddComponent,
+  },
+  {
+    path: 'payments',
+    component: PaymentsOverviewComponent,
+  },
+  {
     path: 'wallets',
     pathMatch: 'full',
     component: WalletsComponent,
@@ -50,7 +60,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   }
 
-  
+
 
   // add my converter Path
 
