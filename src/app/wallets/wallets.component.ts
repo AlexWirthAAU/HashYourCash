@@ -44,6 +44,7 @@ export class WalletsComponent implements OnInit {
 saveWalletId(elem):void{
   this.currentWallet = elem.w_id;
   this.walletService.getWalletId(this.currentWallet);
+  this.walletService.setWallet(elem);
 }
 
 saveWallet(elem):void{

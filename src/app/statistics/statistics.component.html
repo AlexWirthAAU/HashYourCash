@@ -1,4 +1,4 @@
-<h1 class="text-center">Statistik zu deinem Wallet</h1><br>
+<h1 class="text-center" *ngIf="wallet.getWallet() != null">Statistik zu {{wallet.getWallet().name}}</h1><br>
 <div class="jumbotron">
     <h3>Optionen</h3>
     <p>Standardmäßig werden alle Diagramme angezeigt.</p><br>

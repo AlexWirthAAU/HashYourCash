@@ -92,6 +92,24 @@ export class ApiService {
       });
   }
 
+  public getPaymentsByDate(period, walletId) {
+    return this.httpClient.post<any>(this.apiURL + '/payments/period/' + walletId, period,
+    {
+      headers: new HttpHeaders({
+        Authorization: localStorage.getItem('access_token')
+      })
+    });
+  }
+
+  public getAllCategories() {
+    return this.httpClient.get<any>(this.apiURL + '/categories',
+    {
+      headers: new HttpHeaders({
+        Authorization: localStorage.getItem('access_token')
+      })
+    });
+  }
+
   /*public deleteW(walletID) {
     return this.httpClient.delete<any>(this.apiURL + '/wallets',
       {
