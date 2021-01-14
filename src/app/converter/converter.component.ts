@@ -35,7 +35,8 @@ export class ConverterComponent implements OnInit {
       arrKeys.map(item => {
         return html += `<option value=${item}>${item}</option>`;
       });
-      //console.log(html);
+      // gibt alle currencies auf html
+      console.log(html);
 
       for (let i = 0; i < select.length; i++) {
         select[i].innerHTML = html;
