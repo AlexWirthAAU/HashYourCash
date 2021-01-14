@@ -15,7 +15,8 @@ export class ConverterComponent implements OnInit {
     const select = document.querySelectorAll("select");
     const input: any = document.querySelectorAll("input");
    
-    const api_URL = "http://data.fixer.io/api/latest?access_key=f8869e0960e20a2f237c64722f3d841b";
+    const api_URL = "https://data.fixer.io/api/latest?access_key=87492957e71943fca9a7a8dd3e18e935";
+    //const api_URL = "https://api.nomics.com/v1"
     let html = "";
 
     async function currency() {
@@ -36,7 +37,7 @@ export class ConverterComponent implements OnInit {
 
       for (let i = 0; i < select.length; i++) {
         select[i].innerHTML = html;
-      }
+   
       //console.log(rates[select[0].value]) //rates
 
     
@@ -66,4 +67,5 @@ export class ConverterComponent implements OnInit {
     
   }
 
+}
 }

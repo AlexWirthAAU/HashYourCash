@@ -28,12 +28,12 @@ export class TickersComponent implements OnInit {
       const data = await result.json();
       //console.log(data.rates);
       const arrKeys = Object.keys(data.rates)
-      console.log(arrKeys[0]);
+      //console.log(arrKeys[0]);
       const rates = data.rates;
-      console.log(rates);
+      //console.log(rates);
 
 
-      console.log(rates.CAD)
+      //console.log(rates.CAD)
       const rateUSD = rates.USD;
       usd?.setAttribute("value", rates.USD);
       cad?.setAttribute("value", rates.CAD);
