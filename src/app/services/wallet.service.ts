@@ -8,6 +8,7 @@ export class WalletService {
 
   walletId: Observable<number>;
   walletData: Observable<any>;
+  wallet: any;
   private currentWalletData = new Subject<any>();
   private currentWallet = new Subject<number>();
 
@@ -21,5 +22,13 @@ export class WalletService {
    }
    getWalletData(data){
      this.currentWalletData.next(data)
+   }
+
+   setWallet(wallet) {
+     this.wallet = wallet;
+   }
+
+   getWallet() {
+     return this.wallet;
    }
 }

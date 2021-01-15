@@ -10,6 +10,7 @@ import {PaymentsAddComponent} from './payments/add/payments.add.component';
 import { AuthGuard } from './services/auth.guard';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { WalletsComponent } from './wallets/wallets.component';
+import { WalletSetGuard } from './services/walletSet.guard';
 
 
 
@@ -37,10 +38,12 @@ const routes: Routes = [
   {
     path: 'payments/add',
     component: PaymentsAddComponent,
+    canActivate: [AuthGuard, WalletSetGuard]
   },
   {
     path: 'payments',
     component: PaymentsOverviewComponent,
+    canActivate: [AuthGuard, WalletSetGuard]
   },
   {
     path: 'wallets',
@@ -51,7 +54,7 @@ const routes: Routes = [
     path: 'statistics',
     pathMatch: 'full',
     component: StatisticsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, WalletSetGuard]
   },
   {
     path: 'converter',

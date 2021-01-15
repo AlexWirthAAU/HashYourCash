@@ -25,7 +25,7 @@ export class AppComponent {
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, public modalService: NgbModal, public walletService: WalletService) {
     this.loadUserData();
-    this.contentClass = "content-area-100";
+    this.contentClass = "content-area-85";
     this.walletService.walletData.subscribe((currentData)=> {
     this.walletName = currentData.name;
     this.walletAmount = currentData.amount;
@@ -44,6 +44,7 @@ export class AppComponent {
         this.auth.setUser(data);
       }, //success path
       error => {
+        this.auth.logout();
         console.log(error);
       } //error path
     )
