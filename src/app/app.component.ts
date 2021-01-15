@@ -44,6 +44,7 @@ export class AppComponent {
         this.auth.setUser(data);
       }, //success path
       error => {
+        this.auth.logout();
         console.log(error);
       } //error path
     )

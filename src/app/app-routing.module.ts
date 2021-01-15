@@ -38,10 +38,12 @@ const routes: Routes = [
   {
     path: 'payments/add',
     component: PaymentsAddComponent,
+    canActivate: [AuthGuard, WalletSetGuard]
   },
   {
     path: 'payments',
     component: PaymentsOverviewComponent,
+    canActivate: [AuthGuard, WalletSetGuard]
   },
   {
     path: 'wallets',

@@ -39,8 +39,8 @@ export class StatisticsComponent implements OnInit {
       todate: ""
     }
 
-    this.getAllPayments(period, 1);
-    this.getInAndOuts(period, 1);
+    this.getAllPayments(period, this.wallet.getWallet().id_w);
+    this.getInAndOuts(period, this.wallet.getWallet().id_w);
   }
 
   filterOrderStatistics() {
