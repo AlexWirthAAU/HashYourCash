@@ -101,6 +101,15 @@ export class ApiService {
     });
   }
 
+  public getInAndOuts(period, walletId) {
+    return this.httpClient.post<any>(this.apiURL + '/payments/periodInOut/' + walletId, period,
+    {
+      headers: new HttpHeaders({
+        Authorization: localStorage.getItem('access_token')
+      })
+    });
+  }
+
   public getAllCategories() {
     return this.httpClient.get<any>(this.apiURL + '/categories',
     {

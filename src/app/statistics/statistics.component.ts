@@ -22,6 +22,7 @@ export class StatisticsComponent implements OnInit {
   catAmount: any[];
   catLabels: any[];
   catColors: any[];
+  inandoutAmount: any[];
 
   formData: any;
 
@@ -39,6 +40,7 @@ export class StatisticsComponent implements OnInit {
     }
 
     this.getAllPayments(period, 1);
+    this.getInAndOuts(period, 1);
   }
 
   filterOrderStatistics() {
@@ -53,6 +55,7 @@ export class StatisticsComponent implements OnInit {
     }
 
     this.getAllPayments(period, this.wallet.getWallet().id_w);
+    this.getInAndOuts(period, this.wallet.getWallet().id_w);
   }
 
   selectChart(type) {
@@ -96,8 +99,21 @@ export class StatisticsComponent implements OnInit {
       this.fillGraphs();
     }, //success path
     error => {
-
+      console.log(error.message);
     }) //error path)
+  }
+
+  getInAndOuts(period, walletID) {
+    this.inandoutAmount = [];
+    this.api.getInAndOuts(period, walletID).subscribe(payments => {
+      for(let key in payments) {
+        this.inandoutAmount.push(payments[key]);
+      }
+      this.fillInAndOutChart();
+    },
+    error => {
+      console.log(error.message)
+    })
   }
 
   fillGraphs() {
@@ -149,21 +165,23 @@ export class StatisticsComponent implements OnInit {
       }
 
     })
+  }
 
+  fillInAndOutChart() {
     this.barChartPay = new Chart("barChartPay", {
       type: 'bar',
       data: {
-        labels: ["Auszahlungen", "Einzahlungen"],
+        labels: ["Einnahmen", "Ausgaben"],
         datasets: [{
           label: "Zahlungen",
-          backgroundColor: ["#ad1818", "#046b12"],
-          data: [800, 1300]
+          backgroundColor: ["#046b12", "#ad1818"],
+          data: this.inandoutAmount,
         }]
       },
       options: {
         title: {
           display: true,
-          text: 'Einnahmen und Ausgaben',
+          text: 'Einnahmen und Ausgaben Delta: ' + (this.inandoutAmount[0]-this.inandoutAmount[1]) + "€",
           fontSize: 18,
         },
         legend: {
