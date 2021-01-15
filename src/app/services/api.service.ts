@@ -119,15 +119,22 @@ export class ApiService {
     });
   }
 
-  /*public deleteW(walletID) {
-    return this.httpClient.delete<any>(this.apiURL + '/wallets',
+  public deleteW(walletID): Observable<boolean> {
+    return this.httpClient.delete<any>(this.apiURL + '/wallets/' + walletID,
+      {
+        headers: new HttpHeaders({
+          Authorization: localStorage.getItem('access_token')
+        })
+      }).pipe(
+      map(res => res.statusCode === 200)
+    );
+  }
+  public editW(walletData, walletID) {
+    return this.httpClient.put<any>(this.apiURL + '/wallets/' + walletID, walletData,
       {
         headers: new HttpHeaders({
           Authorization: localStorage.getItem('access_token')
         })
       });
-  }*/
-  public deleteW(walletID) {
-    return this.httpClient.delete<any>(this.apiURL + `/wallets/${walletID}`, { headers: new HttpHeaders({'Authorization': localStorage.getItem('access_token')})})
   }
 }
