@@ -9,102 +9,105 @@
         <h4 class="card-title">{{elem.name}}</h4>
         <p class="card-text">{{elem.description}}</p>
         <br>
-        <button type="button" class="btn btn-primary" (click)="saveWalletId(elem); saveWallet(elem)">Gehe zum Wallet</button>
-        <button type="button" class="btn btn-secondary" (click)="openBackDropCustomClass(edit); saveWallet(elem);">Bearbeiten</button>
-        <button type="button" class="btn btn-danger float-right" (click)="deleteWallet(elem); ">Löschen</button> 
+        <button type="button" class="btn btn-primary" (click)="saveWalletId(elem); saveWallet(elem)">Gehe zum
+          Wallet</button>
+        <button type="button" class="btn btn-secondary"
+          (click)="openBackDropCustomClass(edit); saveWallet(elem);">Bearbeiten</button>
+        <button type="button" class="btn btn-danger float-right" (click)="deleteWallet(elem); ">Löschen</button>
       </div>
     </div>
     <div>
-      
+
 
     </div>
   </div>
   <div class="modalPopover">
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Erstelle ein neues Wallet</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form [formGroup]="walletData" (submit)="createWallet()">
-      <mat-card fxLayout="row wrap">
-      <mat-form-field fxFlex="50">
-        <mat-label>
-          Wallet Name
-        </mat-label>
-        <input matInput type="text" formControlName="name">
-      </mat-form-field>
-    <br> 
-      <mat-form-field fxFlex="70">
-        <mat-label>
-          Beschreibe dein Wallet
-        </mat-label>
-        <textarea matInput formControlName="description" style="height: 100px; width: 400px;"></textarea>
-      </mat-form-field>
-      <br>
-        <mat-form-field>
-          <mat-label>
-            Betrag
-          </mat-label>
-          <input matInput type="number" formControlName="amount" class="text-right" step="0.01">
-          <span matSuffix>€</span>
-        </mat-form-field>
-      </mat-card>
-      <div class="modal-footer">
-        <div class="actions">
-          <button mat-raised-button color="primary" type="submit" [disabled]="!walletData.valid">Erstellen</button>
-        </div>
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Erstelle ein neues Wallet</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </form>
-   
-</div>
-</ng-template>
-</div>
-<div class="modalPopover">
-  <ng-template #edit let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title">Bearbeite dein Wallet</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form [formGroup]="editWalletData" (submit)="editWallet()">
-        <mat-card fxLayout="row wrap">
-        <mat-form-field fxFlex="50">
-          <mat-label>
-            {{userWallet.name}}
-          </mat-label>
-          <input matInput type="text" formControlName="name" >
-        </mat-form-field>
-      <br> 
-        <mat-form-field fxFlex="70">
-          <mat-label>
-            {{userWallet.description}}
-          </mat-label>
-          <textarea matInput formControlName="description"  style="height: 100px; width: 400px;"></textarea>
-        </mat-form-field>
-        <br>
-          <mat-form-field>
-            <mat-label>
-              {{userWallet.amount}}
-            </mat-label>
-            <input matInput type="number" formControlName="amount"  class="text-right" step="0.01">
-            <span matSuffix>€</span>
-          </mat-form-field>
-        </mat-card>
-        <div class="modal-footer">
-          <div class="actions">
-            <button mat-raised-button color="primary" type="submit">Ändern</button>
+      <div class="modal-body">
+        <form [formGroup]="walletData" (submit)="createWallet()">
+          <mat-card fxLayout="row wrap">
+            <mat-form-field fxFlex="50">
+              <mat-label>
+                Wallet Name
+              </mat-label>
+              <input matInput type="text" formControlName="name">
+            </mat-form-field>
+            <br>
+            <mat-form-field fxFlex="70">
+              <mat-label>
+                Beschreibe dein Wallet
+              </mat-label>
+              <textarea matInput formControlName="description" style="height: 100px; width: 400px;"></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <mat-label>
+                Betrag
+              </mat-label>
+              <input matInput type="number" formControlName="amount" class="text-right" step="0.01">
+              <span matSuffix>€</span>
+            </mat-form-field>
+          </mat-card>
+          <div class="modal-footer">
+            <div class="actions">
+              <button mat-raised-button color="primary" type="submit" [disabled]="!walletData.valid">Erstellen</button>
+            </div>
           </div>
-        </div>
-      </form>
-     
+        </form>
+
+      </div>
+    </ng-template>
   </div>
-  </ng-template>
+  <div class="modalPopover">
+    <ng-template #edit let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Bearbeite dein Wallet</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="editWalletData" (submit)="editWallet()">
+          <mat-card fxLayout="row wrap">
+            <mat-form-field fxFlex="50">
+              <mat-label>
+                {{userWallet.name}}
+              </mat-label>
+              <input matInput type="text" formControlName="name">
+            </mat-form-field>
+            <br>
+            <mat-form-field fxFlex="70">
+              <mat-label>
+                {{userWallet.description}}
+              </mat-label>
+              <textarea matInput formControlName="description" style="height: 100px; width: 400px;"></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <mat-label>
+                {{userWallet.amount}}
+              </mat-label>
+              <input matInput type="number" formControlName="amount" class="text-right" step="0.01">
+              <span matSuffix>€</span>
+            </mat-form-field>
+          </mat-card>
+          <div class="modal-footer">
+            <div class="actions">
+              <button mat-raised-button color="primary" type="submit">Ändern</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </ng-template>
   </div>
 
-<button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(content)">Erstelle ein Wallet</button>
+  <button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(content)">Erstelle ein
+    Wallet</button>
 </div>
