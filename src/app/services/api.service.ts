@@ -93,6 +93,6 @@ export class ApiService {
   }
 
   public deleteW(walletID) {
-    return this.httpClient.delete<any>(this.apiURL + '/wallets', { headers: new HttpHeaders({'Authorization': localStorage.getItem('access_token')})})
+    return this.httpClient.delete<any>(this.apiURL + `/wallets/${walletID}`, { headers: new HttpHeaders({'Authorization': localStorage.getItem('access_token')})})
   }
 }

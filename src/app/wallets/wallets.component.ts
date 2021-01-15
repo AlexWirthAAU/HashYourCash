@@ -32,11 +32,11 @@ export class WalletsComponent implements OnInit {
 
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, private modalService: NgbModal, public walletService: WalletService) {
-
+    this.showWallets()
    }
 
   ngOnInit(): void {
-    this.showWallets()
+    //this.showWallets()
   }
   openBackDropCustomClass(content) {
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
@@ -51,17 +51,21 @@ saveWallet(elem):void{
   this.walletService.getWalletData(this.user);
 }
 
+reload(){
+  window.location.reload();
+}
 
   showWallets():void{
     this.api.showW().subscribe(
       response => {
         this.allWallets = response;
-        //this.router.navigate(['/wallets'])
         if(this.allWallets.length === 0) {
-          this.errorMessageW = "There are no wallets yet"
+          this.errorMessageW = "Es wurden noch keine Wallets erstellt."
         } else {
           this.errorMessageW = null;
         }
+        //window.location.reload();
+        //this.router.navigate(['/wallets'])
       }, //success path
       error => {
         console.error(error)
@@ -70,27 +74,46 @@ saveWallet(elem):void{
     }
   //@Zoë currently when submitting nav link also deactivated
   createWallet(){
-  if (this.walletData.value.name !== "" && this.walletData.value.description !== "" && this.walletData.value.amount !== "") {
+  if (this.walletData.value.name !== "" && this.walletData.value.amount !== "") {
     this.api.createW(this.walletData.value).subscribe(
       response => {
-        this.showWallets();
+        //this.showWallets();
+        //window.location.reload();
         this.modalService.dismissAll();
-        //this.router.navigate(['/wallets'])
+        this.showWallets();
+        //location.reload();
       }, //success path
       error => {
         console.error(error)
       } //error path
     );
   }}
-  /*deleteWallet(elem){
+  /*editWallet(){
+      this.api.createW(this.walletData.value).subscribe(
+        response => {
+          //this.showWallets();
+          //window.location.reload();
+          this.modalService.dismissAll();
+          this.showWallets();
+          //location.reload();
+        }, //success path
+        error => {
+          console.error(error)
+        } //error path
+      );
+    }*/
+  deleteWallet(elem){
+    this.saveWalletId(elem);
     this.api.deleteW(elem.w_id).subscribe(
       response => {
+        //window.location.reload();
         this.router.navigate(['/wallets'])
-        this.showWallets()
+        this.showWallets();
+        //location.reload();
       }, //success path
       error => {
         console.error(error)
       } //error path
-    )}*/
+    )}
 }
 
