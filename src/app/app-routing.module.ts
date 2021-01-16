@@ -41,9 +41,9 @@ const routes: Routes = [
     canActivate: [AuthGuard, WalletSetGuard]
   },
   {
-    path: 'payments',
+    path: 'wallets/:wallet',
     component: PaymentsOverviewComponent,
-    canActivate: [AuthGuard, WalletSetGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'wallets',

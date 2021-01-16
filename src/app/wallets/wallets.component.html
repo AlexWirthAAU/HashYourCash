@@ -9,8 +9,8 @@
         <h4 class="card-title">{{elem.name}}</h4>
         <p class="card-text">{{elem.description}}</p>
         <br>
-        <button type="button" class="btn btn-primary" (click)="saveWalletId(elem); saveWallet(elem)">Gehe zum
-          Wallet</button>
+        <button type="button" class="btn btn-primary" (click)="saveWalletId(elem); saveWallet(elem); gotoWallet(elem);">
+          Gehe zum Wallet</button>
         <button type="button" class="btn btn-secondary"
           (click)="openBackDropCustomClass(edit); saveWallet(elem);">Bearbeiten</button>
         <button type="button" class="btn btn-danger float-right" (click)="deleteWallet(elem); ">Löschen</button>
