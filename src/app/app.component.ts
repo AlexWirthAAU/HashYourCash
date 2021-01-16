@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { ApiService } from './services/api.service';
-import { AuthService } from './services/auth.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {ApiService} from './services/api.service';
+import {AuthService} from './services/auth.service';
 import {WalletService} from './services/wallet.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { faWallet, faMoneyBillWave, faExchangeAlt, faChartPie } from '@fortawesome/free-solid-svg-icons';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {faChartPie, faExchangeAlt, faMoneyBillWave, faWallet} from '@fortawesome/free-solid-svg-icons';
+import {catchError, tap} from 'rxjs/operators';
+import {throwError} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -23,45 +25,53 @@ export class AppComponent {
   walletName: any;
   walletAmount: any;
 
-  constructor(public auth: AuthService, public api: ApiService, public router: Router, public modalService: NgbModal, public walletService: WalletService) {
+  constructor(
+    public auth: AuthService,
+    public api: ApiService,
+    public router: Router,
+    public modalService: NgbModal,
+    public walletService: WalletService
+  ) {
     this.loadUserData();
-    this.contentClass = "content-area-85";
-    this.walletService.walletData.subscribe((currentData)=> {
-    this.walletName = currentData.name;
-    this.walletAmount = currentData.amount;
-    })
+    this.contentClass = 'content-area-85';
+    this.walletService.walletData.subscribe((currentData) => {
+      this.walletName = currentData.name;
+      this.walletAmount = currentData.amount;
+    });
   }
 
-  resetWData(){
+  resetWData() {
     this.walletName = null;
     this.walletAmount = null;
   }
 
   loadUserData() {
-    
-    this.api.getUserData().subscribe(
-      data => {
-        this.auth.setUser(data);
-      }, //success path
-      error => {
-        this.auth.logout();
-        console.log(error);
-      } //error path
-    )
+
+    this.api.getUserData()
+      .pipe(
+        catchError(err => {console.error(err); return throwError(err); }),
+        tap(data => this.auth.setUser(data)),
+      )
+      .subscribe(
+    );
   }
 
   toggleMenu() {
     this.showMenu = !this.showMenu;
-    if (this.showMenu == true) {
-      this.contentClass = "content-area-85";
+    if (this.showMenu === true) {
+      this.contentClass = 'content-area-85';
     } else {
-      this.contentClass = "content-area-100";
+      this.contentClass = 'content-area-100';
     }
   }
 
   openUserMenuModal(content) {
     //DEMO
-    this.modalReference = this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', backdrop: 'static', keyboard: false }).result.then((result) => {
+    this.modalReference = this.modalService.open(content, {
+      ariaLabelledBy: 'modal-basic-title',
+      backdrop: 'static',
+      keyboard: false
+    }).result.then((result) => {
 
     }, (reason) => {
 

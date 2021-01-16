@@ -6,6 +6,7 @@ import {WalletService} from '../services/wallet.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {faHome, faCarSide} from '@fortawesome/free-solid-svg-icons';
+import {Wallet} from '../model/wallet';
 
 @Component({
   selector: 'app-wallets',
@@ -19,7 +20,7 @@ export class WalletsComponent implements OnInit {
   faCarSide = faCarSide;
   home: string;
   profileForm: any;
-  allWallets: any;
+  allWallets: Wallet[];
   errorMessageW: string;
   userWallet: any;
   currentWallet: number;
@@ -41,12 +42,10 @@ export class WalletsComponent implements OnInit {
               public router: Router,
               private modalService: NgbModal,
               public walletService: WalletService
-  ){
-    this.showWallets();
-  }
+  ){}
 
   ngOnInit(): void {
-    //this.showWallets()
+    this.showWallets();
   }
 
   openBackDropCustomClass(content) {
@@ -65,11 +64,7 @@ export class WalletsComponent implements OnInit {
   }
 
   gotoWallet(elem): void{
-    this.router.navigateByUrl("/wallets/" + elem.w_id);
-  }
-
-  reload() {
-    window.location.reload();
+    this.router.navigateByUrl('/wallets/' + elem.w_id);
   }
 
   showWallets(): void {
@@ -81,10 +76,10 @@ export class WalletsComponent implements OnInit {
         } else {
           this.errorMessageW = null;
         }
-      }, //success path
+      }, // success path
       error => {
         console.error(error);
-      } //error path
+      } // error path
     );
   }
 

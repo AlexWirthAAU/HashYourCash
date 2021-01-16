@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
+import {User} from '../model/user';
 
 
 @Injectable({
@@ -9,13 +10,12 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private user: any;
+  private user: User;
   apiURL: string;
 
   constructor(public httpClient: HttpClient, public router: Router) {
     this.apiURL = "https://hashyourcash.herokuapp.com";
   }
- 
 
   login(email: string, password: string) {
     let userInput = {
@@ -25,12 +25,12 @@ export class AuthService {
     return this.httpClient.post<{token: string}>(this.apiURL + '/login', userInput);
   }
 
-  setUser(user: any) {
+  setUser(user: User) {
     this.user = user;
   }
 
-  getUser() {
-    if(this.loggedIn()) {
+  getUser(): User | null {
+    if (this.loggedIn()) {
       return this.user;
     }
     return null;
@@ -61,17 +61,12 @@ export class AuthService {
     }
   }
 
-  
-
-  
-
   getDecodedAccessToken(token: string): any {
     try{
         return jwt_decode(token);
     }
-    catch(Error){
+    catch (Error){
         return null;
     }
   }
- 
 }

@@ -14,8 +14,6 @@ import {switchMap, tap} from 'rxjs/operators';
 })
 export class PaymentsOverviewComponent implements OnInit {
   faPlus = faPlus;
-
-  userId: number;
   walletId: number;
 
   dataSource = new MatTableDataSource<Payment>();
@@ -41,10 +39,11 @@ export class PaymentsOverviewComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.api.getUserData()
+    this.api.getPayments(
+      this.auth.getUser()?.u_id,
+      this.walletId
+    )
       .pipe(
-        tap(user => this.userId = user.u_id),
-        switchMap(user => this.api.getPayments(user.u_id, this.walletId)),
         tap(payments => this.dataSource.data = payments)
         )
       .subscribe();

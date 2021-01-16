@@ -3,6 +3,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {Payment} from '../model/payment';
 import {map} from 'rxjs/operators';
+import {User} from '../model/user';
+import {Wallet} from '../model/wallet';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +22,8 @@ export class ApiService {
     this.apiURL = "https://hashyourcash.herokuapp.com";
   }
 
-  public getUserData() {
-    return this.httpClient.get<any[]>(this.apiURL + '/user',
+  public getUserData(): Observable<User> {
+    return this.httpClient.get<User>(this.apiURL + '/user',
       {
         headers: new HttpHeaders({
           Authorization: localStorage.getItem('access_token')
@@ -74,8 +76,8 @@ export class ApiService {
     );
   }
 
-  public createW(userData) {
-    return this.httpClient.post<any>(this.apiURL + '/wallets', userData,
+  public createW(userData: Wallet) {
+    return this.httpClient.post<Wallet>(this.apiURL + '/wallets', userData,
       {
         headers: new HttpHeaders({
           Authorization: localStorage.getItem('access_token')
@@ -83,8 +85,8 @@ export class ApiService {
       });
   }
 
-  public showW() {
-    return this.httpClient.get<any[]>(this.apiURL + '/wallets',
+  public showW(): Observable<Wallet[]> {
+    return this.httpClient.get<Wallet[]>(this.apiURL + '/wallets',
       {
         headers: new HttpHeaders({
           Authorization: localStorage.getItem('access_token')
@@ -129,8 +131,8 @@ export class ApiService {
       map(res => res.statusCode === 200)
     );
   }
-  public editW(walletData, walletID) {
-    return this.httpClient.put<any>(this.apiURL + '/wallets/' + walletID, walletData,
+  public editW(walletData: Wallet, walletID: number) {
+    return this.httpClient.put<Wallet>(this.apiURL + '/wallets/' + walletID, walletData,
       {
         headers: new HttpHeaders({
           Authorization: localStorage.getItem('access_token')

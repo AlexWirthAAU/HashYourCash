@@ -36,7 +36,7 @@ paymentForm: any;
     };
     this.api.addPayment(payment).subscribe(
       response => {
-        this.router.navigateByUrl('/payments');
+        this.router.navigateByUrl('/wallets/' + this.paymentForm.value.wallet);
       },
       error => {
         console.error(error);
