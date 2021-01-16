@@ -14,11 +14,12 @@
                         <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
                             <div class="form-area pt-3">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">E-Mail Adresse</span>
-                                    </div>
-                                    <input type="email" class="form-control" placeholder="" aria-label=""
-                                        aria-describedby="basic-addon1" formControlName="email" required>
+                                    <mat-form-field fxFlex="90">
+                                        <mat-label>
+                                          E-Mail Adresse
+                                        </mat-label>
+                                        <input matInput type="email" formControlName="email" required>
+                                      </mat-form-field>
                                     <div class="invalid-feedback">
                                         E-Mail Adresse muss angegeben werden
                                     </div>
