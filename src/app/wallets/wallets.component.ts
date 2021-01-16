@@ -37,11 +37,11 @@ export class WalletsComponent implements OnInit {
   })
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, private modalService: NgbModal, public walletService: WalletService) {
-    this.showWallets()
+    //this.showWallets()
    }
 
   ngOnInit(): void {
-    //this.showWallets()
+    this.showWallets()
   }
   openBackDropCustomClass(content) {
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
