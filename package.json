@@ -50,7 +50,7 @@
     "npm": "6.14.6"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.12",
+    "@angular-devkit/build-angular": "~0.1100.7",
     "@angular/cli": "^11.0.5",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
