@@ -38,13 +38,14 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('access_token');
-    this.router.navigate(['/'])
+    this.user = null;
+    this.router.navigate(['/login']);
   }
 
   public loggedIn(): boolean {
     let tokeninfo = this.getDecodedAccessToken(localStorage.getItem('access_token'));
     var currentTime = +new Date / 1000;
-    if(tokeninfo && currentTime >= tokeninfo.exp) {
+    if (tokeninfo && currentTime >= tokeninfo.exp) {
       this.logout();
       return false;
     }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '../services/api.service';
 import {AuthService} from '../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   wrongPassword: string = null;
   logo: string = 'assets/images/logo.png';
 
-  constructor(public auth: AuthService, public api: ApiService) {
+  constructor(public auth: AuthService, public api: ApiService, public router: Router) {
     this.formData = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
         response => {
           localStorage.setItem('access_token', response.token);
           this.loadUserData();
+          this.router.navigate(['/wallets']);
         }, //success path
         error => {
           console.log(error);

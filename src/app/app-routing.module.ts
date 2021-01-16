@@ -11,6 +11,7 @@ import { AuthGuard } from './services/auth.guard';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { WalletsComponent } from './wallets/wallets.component';
 import { WalletSetGuard } from './services/walletSet.guard';
+import {LoginComponent} from './login/login.component';
 
 
 
@@ -19,6 +20,11 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: '/wallets',
+  },
+  {
+    path: 'login',
+    pathMatch: 'full',
+    component: LoginComponent
   },
   {
     path: 'register',
@@ -49,6 +55,7 @@ const routes: Routes = [
     path: 'wallets',
     pathMatch: 'full',
     component: WalletsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'statistics',
