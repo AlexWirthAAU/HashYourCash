@@ -21,21 +21,23 @@
                     <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
                         <div class="form-area pt-3">
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">E-Mail Adresse</span>
-                                </div>
-                                <input type="email" class="form-control" placeholder="" aria-label=""
-                                    aria-describedby="basic-addon1" formControlName="email" required>
+                                <mat-form-field fxFlex="90">
+                                    <mat-label>
+                                      E-Mail Adresse
+                                    </mat-label>
+                                    <input matInput type="email" formControlName="email" required>
+                                  </mat-form-field>
                                 <div class="invalid-feedback d-block" *ngIf="formData.controls.email.errors && formValidation==true">
                                     E-Mail Adresse muss angegeben werden
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Passwort</span>
-                                </div>
-                                <input type="password" class="form-control" placeholder="" aria-label=""
-                                    aria-describedby="basic-addon1" formControlName="password" required>
+                                <mat-form-field fxFlex="90">
+                                    <mat-label>
+                                      Passwort
+                                    </mat-label>
+                                    <input matInput type="password" formControlName="password" required>
+                                  </mat-form-field>
                                 <div class="invalid-feedback d-block" *ngIf="formData.controls.password.errors && formValidation==true">
                                     Passwort muss angegeben werden
                                 </div>
@@ -43,12 +45,12 @@
                             <div *ngIf="wrongPassword != null" class="alert alert-danger" role="alert">{{wrongPassword}}</div>
                             <button type="submit" class="btn btn-secondary btn-block">Einloggen</button>
                             <div style="text-align: center">
-                                <a class="text-center pt-3" style="font-size:1.2em; color: black" [routerLink]="'forgotpw'">Passwort vergessen?</a>
+                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'forgotpw'">Passwort vergessen?</a>
                             </div>
                             <br>
                             <h3 class="text-center pt-3">Du besitzt noch kein Konto?</h3>
                             <div style="text-align: center">
-                                <a class="text-center pt-3" style="font-size:1.2em; color:black" [routerLink]="'register'">...dann kannst du dich hier registrieren
+                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'register'">...dann kannst du dich hier registrieren
                                  </a><i class="fa fa-sign-in"></i>
                             </div>
                         </div>
