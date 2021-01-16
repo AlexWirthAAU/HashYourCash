@@ -31,4 +31,8 @@ export class WalletService {
    getWallet() {
      return this.wallet;
    }
+
+   emptyWallet(){
+     this.wallet = null;
+   }
 }
