@@ -132,9 +132,5 @@ export class WalletsComponent implements OnInit {
       } //error path
     );
   }
-
-  show() {
-    console.log(this.userWallet);
-  }
 }
 
