@@ -13,7 +13,7 @@
           Gehe zum Wallet</button>
         <button type="button" class="btn btn-secondary"
           (click)="openBackDropCustomClass(edit); saveWallet(elem);">Bearbeiten</button>
-        <button type="button" class="btn btn-danger float-right" (click)="deleteWallet(elem); ">Löschen</button>
+        <button type="button" class="btn btn-danger float-right" (click)="deleteWallet(elem); walletService.emptyWallet()">Löschen</button>
       </div>
     </div>
     <div>
