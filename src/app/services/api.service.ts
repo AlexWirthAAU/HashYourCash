@@ -122,6 +122,7 @@ export class ApiService {
   }
 
   public getPaymentsByDate(period, walletId) {
+    console.log(walletId)
     return this.httpClient.post<any>(this.apiURL + '/payments/period/' + walletId, period,
     {
       headers: new HttpHeaders({

@@ -39,8 +39,8 @@ export class StatisticsComponent implements OnInit {
       todate: ""
     }
 
-    this.getAllPayments(period, this.wallet.getWallet().id_w);
-    this.getInAndOuts(period, this.wallet.getWallet().id_w);
+    this.getAllPayments(period, this.wallet.getWallet().w_id);
+    this.getInAndOuts(period, this.wallet.getWallet().w_id);
   }
 
   filterOrderStatistics() {
@@ -54,8 +54,8 @@ export class StatisticsComponent implements OnInit {
       todate: todate,
     }
 
-    this.getAllPayments(period, this.wallet.getWallet().id_w);
-    this.getInAndOuts(period, this.wallet.getWallet().id_w);
+    this.getAllPayments(period, this.wallet.getWallet().w_id);
+    this.getInAndOuts(period, this.wallet.getWallet().w_id);
   }
 
   selectChart(type) {
