@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Payment} from '../model/payment';
 import {map} from 'rxjs/operators';
 import {User} from '../model/user';
 import {Wallet} from '../model/wallet';
+import {Category} from '../model/category';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,28 @@ import {Wallet} from '../model/wallet';
 
 export class ApiService {
 
+  constructor(private httpClient: HttpClient) {
+    //this.apiURL = 'http://localhost:3000';
+    this.apiURL = "https://hashyourcash.herokuapp.com";
+  }
+
   apiURL: string;
 
-  constructor(private httpClient: HttpClient) { 
-    this.apiURL = "https://hashyourcash.herokuapp.com";
+  private static mapPayment(data: any): Payment{
+    const payment: Payment = data;
+    if (data.name !== undefined
+      && data.color !== undefined
+      && data.icon !== undefined){
+      payment.category = {
+        c_id: data.c_id,
+        name: data.name,
+        limit: data.limit,
+        color: data.color,
+        icon: data.icon,
+        u_id: data.u_id,
+      };
+    }
+    return payment;
   }
 
   public getUserData(): Observable<User> {
@@ -57,12 +76,20 @@ export class ApiService {
   }
 
   public getPayments(userID, walletID): Observable<Payment[]> {
-    return this.httpClient.get<Payment[]>(this.apiURL + '/payments/' + walletID,
+    return this.httpClient.get<any[]>(this.apiURL + '/payments/' + walletID,
       {
         headers: new HttpHeaders({
           Authorization: localStorage.getItem('access_token')
         })
-      });
+      }).pipe( // @Alex diesen abschnitt in get payments by date und get in and outs einbauen
+        map(data => {
+          const payments: Payment[] = [];
+          for (const item of data){
+            payments.push(ApiService.mapPayment(item));
+          }
+          return payments;
+        }),
+    );
   }
 
   public deletePayment(paymentId): Observable<boolean> {
@@ -112,8 +139,8 @@ export class ApiService {
     });
   }
 
-  public getAllCategories() {
-    return this.httpClient.get<any>(this.apiURL + '/categories',
+  public getAllCategories(): Observable<Category[]> {
+    return this.httpClient.get<Category[]>(this.apiURL + '/categories',
     {
       headers: new HttpHeaders({
         Authorization: localStorage.getItem('access_token')

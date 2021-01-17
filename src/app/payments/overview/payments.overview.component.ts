@@ -28,13 +28,14 @@ export class PaymentsOverviewComponent implements OnInit {
     this.displayedColumns = [
       'type',
       'amount',
+      'category',
       'description',
       'comment'
     ];
   }
 
   public fabAddClick() {
-    this.router.navigateByUrl('payments/add');
+    this.router.navigateByUrl('wallets/' + this.walletId + '/add');
   }
 
   ngOnInit(): void {
@@ -44,7 +45,7 @@ export class PaymentsOverviewComponent implements OnInit {
       this.walletId
     )
       .pipe(
-        tap(payments => this.dataSource.data = payments)
+        tap(payments => this.dataSource.data = payments),
         )
       .subscribe();
 

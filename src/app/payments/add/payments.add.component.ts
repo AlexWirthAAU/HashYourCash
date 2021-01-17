@@ -1,25 +1,34 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ApiService} from '../../services/api.service';
 import {Payment} from '../../model/payment';
+import {tap} from 'rxjs/operators';
+import {Category} from '../../model/category';
 
 @Component({
   selector: 'app-payments-add',
   templateUrl: './payments.add.component.html',
   styleUrls: ['./payments.add.component.css']
 })
-export class PaymentsAddComponent{
-paymentForm: any;
-  constructor(private fb: FormBuilder, private api: ApiService, private router: Router){
+export class PaymentsAddComponent implements OnInit{
+  paymentForm: any;
+  categories: Category[];
+  walletId: number;
+
+  constructor(private fb: FormBuilder, private api: ApiService, private router: Router, public route: ActivatedRoute){
+    this.route.params.subscribe(
+      params => {
+        this.walletId = params.wallet;
+      }
+    );
     this.paymentForm = this.fb.group({
       type: [''],
       amount: ['', Validators.required],
       description: [''],
       comment: [''],
       period: [1], //  TODO implement!
-      wallet: [1], // TODO implement!
-      category: [1], // TODO implement!
+      category: [''],
     });
   }
 
@@ -30,17 +39,25 @@ paymentForm: any;
       description: this.paymentForm.value.description,
       comment: this.paymentForm.value.comment,
       pe_id: this.paymentForm.value.period,
-      w_id: this.paymentForm.value.wallet,
+      w_id: this.walletId,
       c_id: this.paymentForm.value.category,
       entry_date: new Date(),
     };
     this.api.addPayment(payment).subscribe(
       response => {
-        this.router.navigateByUrl('/wallets/' + this.paymentForm.value.wallet);
+        this.router.navigateByUrl('/wallets/' + this.walletId);
       },
       error => {
         console.error(error);
       }
     );
+  }
+
+  ngOnInit(): void {
+    this.api.getAllCategories()
+      .pipe(
+        tap(categories => this.categories = categories),
+      )
+      .subscribe();
   }
 }

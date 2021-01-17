@@ -42,7 +42,7 @@ const routes: Routes = [
     component: ResetpwComponent
   },
   {
-    path: 'payments/add',
+    path: 'wallets/:wallet/add',
     component: PaymentsAddComponent,
     canActivate: [AuthGuard, WalletSetGuard]
   },

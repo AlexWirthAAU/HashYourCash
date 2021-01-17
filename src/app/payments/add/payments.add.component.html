@@ -26,6 +26,18 @@
 
           <mat-form-field>
             <mat-label>
+              Kategorien
+            </mat-label>
+            <mat-select formControlName="category" required>
+              <mat-option *ngFor="let category of categories" [value]="category.c_id">
+                {{ category.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+
+          <mat-form-field>
+            <mat-label>
               Beschreibung
             </mat-label>
             <input matInput type="text" formControlName="description">
