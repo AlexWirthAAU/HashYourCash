@@ -5,6 +5,7 @@ import {ApiService} from '../../services/api.service';
 import {Payment} from '../../model/payment';
 import {tap} from 'rxjs/operators';
 import {Category} from '../../model/category';
+import {WalletService} from '../../services/wallet.service';
 
 @Component({
   selector: 'app-payments-add',
@@ -16,14 +17,20 @@ export class PaymentsAddComponent implements OnInit{
   categories: Category[];
   walletId: number;
 
-  constructor(private fb: FormBuilder, private api: ApiService, private router: Router, public route: ActivatedRoute){
+  constructor(
+    private fb: FormBuilder,
+    private api: ApiService,
+    private router: Router,
+    public route: ActivatedRoute,
+    public walletService: WalletService
+  ){
     this.route.params.subscribe(
       params => {
         this.walletId = params.wallet;
       }
     );
     this.paymentForm = this.fb.group({
-      type: [''],
+      type: ['', Validators.required],
       amount: ['', Validators.required],
       description: [''],
       comment: [''],
@@ -43,8 +50,10 @@ export class PaymentsAddComponent implements OnInit{
       c_id: this.paymentForm.value.category,
       entry_date: new Date(),
     };
+
     this.api.addPayment(payment).subscribe(
       response => {
+        this.walletService.updateWalletAmount(response.newWalletAmount);
         this.router.navigateByUrl('/wallets/' + this.walletId);
       },
       error => {

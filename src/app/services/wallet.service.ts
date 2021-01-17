@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,23 +16,31 @@ export class WalletService {
   constructor() {
     this.walletId = this.currentWallet.asObservable();
     this.walletData = this.currentWalletData.asObservable();
-   }
-   getWalletId(data){
-     this.currentWallet.next(data)
-   }
-   getWalletData(data){
-     this.currentWalletData.next(data)
-   }
+  }
 
-   setWallet(wallet) {
-     this.wallet = wallet;
-   }
+  getWalletId(data) {
+    this.currentWallet.next(data);
+  }
 
-   getWallet() {
-     return this.wallet;
-   }
+  getWalletData(data) {
+    this.currentWalletData.next(data);
+  }
 
-   emptyWallet(){
-     this.wallet = null;
-   }
+  setWallet(wallet) {
+    this.wallet = wallet;
+  }
+
+  getWallet() {
+    return this.wallet;
+  }
+
+  emptyWallet() {
+    this.wallet = null;
+  }
+
+  updateWalletAmount(amount: number) {
+    if (this.wallet !== null) {
+      this.wallet.amount = amount;
+    }
+  }
 }

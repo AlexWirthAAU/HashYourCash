@@ -28,7 +28,7 @@
             <mat-label>
               Kategorien
             </mat-label>
-            <mat-select formControlName="category" required>
+            <mat-select formControlName="category">
               <mat-option *ngFor="let category of categories" [value]="category.c_id">
                 {{ category.name }}
               </mat-option>
