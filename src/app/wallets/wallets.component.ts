@@ -27,6 +27,7 @@ export class WalletsComponent implements OnInit {
   currentWallet: number;
   allPayments: Payment[];
   initiated: boolean;
+
   
 
   walletData = new FormGroup({
@@ -75,6 +76,7 @@ export class WalletsComponent implements OnInit {
     this.api.showW().subscribe(
       response => {
         this.allWallets = response;
+        //console.log(response)
         if (this.allWallets.length === 0) {
           this.errorMessageW = 'Es wurden noch keine Wallets erstellt.';
         } else {
@@ -88,15 +90,17 @@ export class WalletsComponent implements OnInit {
   }
   firstPayment(elem):void {
     //this.checkP(elem);
-    if(this.allPayments.length === 0){
+    if(elem.is_initiated === false){
     const initialP: InitialP = {
       type: "in",
       amount: elem.amount,
       description: "Initialbetrag",
       comment: "Mit diesem Betrag wurde das Wallet gestartet",
       w_id: elem.w_id,
-      entry_date: new Date()
+      entry_date: new Date(),
+      is_initiated: true
     } 
+    
     this.api.initialP(initialP, elem.w_id).subscribe(
       response => {
         this.router.navigateByUrl('/wallets/' + elem.w_id);
@@ -109,16 +113,6 @@ export class WalletsComponent implements OnInit {
     this.router.navigateByUrl('/wallets/' + elem.w_id);
   }
 }
-  hideAmount(elem):void{
-    this.api.getPayments(this.auth.getUser()?.u_id, elem.w_id).subscribe(
-      response => {
-        this.allPayments = response;
-        if (this.allPayments.length === 0){
-          this.initiated = false
-        } else {
-          this.initiated = true;
-        }
-  })}
 
   checkP(elem): void {
     this.api.getPayments(this.auth.getUser()?.u_id, elem.w_id).subscribe(
@@ -132,8 +126,9 @@ export class WalletsComponent implements OnInit {
       console.error(error);
     }) 
     }
-
-  //@Zoë currently when submitting nav link also deactivated
+test(elem){
+  console.log(elem);
+}
   createWallet() {
     if (this.walletData.value.name !== '' && this.walletData.value.amount !== '') {
       this.api.createW(this.walletData.value).subscribe(

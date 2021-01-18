@@ -4,6 +4,7 @@ export interface Wallet {
   name: string;
   description: string;
   amount: number;
+  is_initiated?:boolean;
 }
 
 export interface InitialP {
@@ -13,4 +14,5 @@ export interface InitialP {
   comment: string;
   w_id: number;
   entry_date: Date;
+  is_initiated?:boolean;
 }
