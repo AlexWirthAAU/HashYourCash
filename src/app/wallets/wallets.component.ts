@@ -6,7 +6,8 @@ import {WalletService} from '../services/wallet.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {faHome, faCarSide} from '@fortawesome/free-solid-svg-icons';
-import {Wallet} from '../model/wallet';
+import {Wallet, InitialP} from '../model/wallet';
+import {Payment} from '../model/payment';
 
 @Component({
   selector: 'app-wallets',
@@ -24,6 +25,9 @@ export class WalletsComponent implements OnInit {
   errorMessageW: string;
   userWallet: any;
   currentWallet: number;
+  allPayments: Payment[];
+  initiated: boolean;
+  
 
   walletData = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -82,6 +86,43 @@ export class WalletsComponent implements OnInit {
       } // error path
     );
   }
+  firstPayment(elem):void {
+    //this.checkP(elem);
+    if(this.allPayments.length === 0){
+    const initialP: InitialP = {
+      type: "in",
+      amount: elem.amount,
+      description: "Initialbetrag",
+      comment: "Mit diesem Betrag wurde das Wallet gestartet",
+      w_id: elem.w_id,
+      entry_date: new Date()
+    } 
+    this.api.initialP(initialP, elem.w_id).subscribe(
+      response => {
+        this.router.navigateByUrl('/wallets/' + elem.w_id);
+      }, //success path
+      error => {
+        console.error(error);
+      } //error path
+    );
+  } else {
+    this.router.navigateByUrl('/wallets/' + elem.w_id);
+  }
+}
+
+
+  checkP(elem): void {
+    this.api.getPayments(this.auth.getUser()?.u_id, elem.w_id).subscribe(
+      response => {
+        this.allPayments = response;
+        this.firstPayment(elem);
+        //console.log(response)
+        //this.firstPayment(elem);
+      },
+    error => {
+      console.error(error);
+    }) 
+    }
 
   //@Zoë currently when submitting nav link also deactivated
   createWallet() {
