@@ -615,5 +615,25 @@
     }
   }
 
+  @media screen and (max-height:1050px){
+    .bottom-menu {
+      position: absolute;
+      left: 0;
+      bottom: 8%;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-height:660px){
+    .bottom-menu {
+      position: absolute;
+      left: 0;
+      bottom: 10%;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
