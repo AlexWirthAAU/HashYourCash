@@ -40,7 +40,7 @@ export class PaymentsAddComponent implements OnInit{
   }
 
   onSubmit() {
-    const payment: Payment = {
+    var payment: Payment = {
       type: this.paymentForm.value.type,
       amount: this.paymentForm.value.amount,
       description: this.paymentForm.value.description,
@@ -50,6 +50,10 @@ export class PaymentsAddComponent implements OnInit{
       c_id: this.paymentForm.value.category,
       entry_date: new Date(),
     };
+
+    if(this.paymentForm.value.type === 'in') {
+      payment.c_id = 0;
+    }
 
     this.api.addPayment(payment).subscribe(
       response => {
