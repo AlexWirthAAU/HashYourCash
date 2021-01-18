@@ -12,7 +12,7 @@
         <button type="button" class="btn btn-primary" (click)="saveWalletId(elem); saveWallet(elem); checkP(elem)">
           Gehe zum Wallet</button>
         <button type="button" class="btn btn-secondary"
-          (click)="openBackDropCustomClass(edit); saveWallet(elem);">Bearbeiten</button>
+          (click)="openBackDropCustomClass(edit); saveWallet(elem); hideAmount(elem)">Bearbeiten</button>
         <button type="button" class="btn btn-danger float-right" (click)="deleteWallet(elem); walletService.emptyWallet()">Löschen</button>
       </div>
     </div>
@@ -89,7 +89,7 @@
               <textarea matInput formControlName="description" style="height: 100px; width: 400px;"></textarea>
             </mat-form-field>
             <br>
-            <mat-form-field>
+            <mat-form-field *ngIf="!initiated">
               <mat-label>
                 {{userWallet.amount}}
               </mat-label>

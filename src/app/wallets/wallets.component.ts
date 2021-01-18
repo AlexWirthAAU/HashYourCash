@@ -109,7 +109,16 @@ export class WalletsComponent implements OnInit {
     this.router.navigateByUrl('/wallets/' + elem.w_id);
   }
 }
-
+  hideAmount(elem):void{
+    this.api.getPayments(this.auth.getUser()?.u_id, elem.w_id).subscribe(
+      response => {
+        this.allPayments = response;
+        if (this.allPayments.length === 0){
+          this.initiated = false
+        } else {
+          this.initiated = true;
+        }
+  })}
 
   checkP(elem): void {
     this.api.getPayments(this.auth.getUser()?.u_id, elem.w_id).subscribe(
