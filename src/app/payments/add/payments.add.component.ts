@@ -69,4 +69,14 @@ export class PaymentsAddComponent implements OnInit{
       )
       .subscribe();
   }
+
+  typeChange(type) {
+    if(type == "in") {
+      this.paymentForm.get('category').clearValidators()
+      this.paymentForm.get('category').updateValueAndValidity();
+    } else {
+      this.paymentForm.get('category').setValidators([Validators.required])
+      this.paymentForm.get('category').updateValueAndValidity();
+    }
+  }
 }
