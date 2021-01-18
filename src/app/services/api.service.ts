@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {Payment} from '../model/payment';
 import {map} from 'rxjs/operators';
 import {User} from '../model/user';
-import {Wallet} from '../model/wallet';
+import {InitialP, Wallet} from '../model/wallet';
 import {Category} from '../model/category';
 
 @Injectable({
@@ -161,6 +161,15 @@ export class ApiService {
   }
   public editW(walletData: Wallet, walletID: number) {
     return this.httpClient.put<Wallet>(this.apiURL + '/wallets/' + walletID, walletData,
+      {
+        headers: new HttpHeaders({
+          Authorization: localStorage.getItem('access_token')
+        })
+      });
+  }
+
+  public initialP(firstP: InitialP, walletID: number) {
+    return this.httpClient.post<InitialP>(this.apiURL + '/wallets/'+ walletID, firstP,
       {
         headers: new HttpHeaders({
           Authorization: localStorage.getItem('access_token')
