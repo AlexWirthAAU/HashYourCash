@@ -40,6 +40,7 @@ export class PaymentsOverviewComponent implements OnInit {
 
   ngOnInit(): void {
 
+    /*
     this.api.getPayments(
       this.auth.getUser()?.u_id,
       this.walletId
@@ -48,6 +49,15 @@ export class PaymentsOverviewComponent implements OnInit {
         tap(payments => this.dataSource.data = payments),
         )
       .subscribe();
+      */
+     this.api.getPayments(
+       this.auth.getUser()?.u_id,
+       this.walletId).subscribe(data => {
+         this.dataSource.data = data;
+       }, 
+       error => {
+        this.router.navigate(['/wallets']);
+       })
 
   }
 }
