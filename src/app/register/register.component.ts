@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   userEmails: any;
   passwordErr: string = null;
   emailErr: string = null;
-  logo: string = "assets/images/Logo_Banner_integrate.png";
+  logo: string = 'assets/images/logo.png';
 
 
   constructor(public api: ApiService, public router: Router) {

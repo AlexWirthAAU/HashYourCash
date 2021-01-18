@@ -6,10 +6,10 @@
 
         <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
           <mat-radio-group formControlName="type" required>
-            <mat-radio-button value="in">
+            <mat-radio-button value="in" (change)="typeChange('in')">
               Einzahlung
             </mat-radio-button>
-            <mat-radio-button value="out">
+            <mat-radio-button value="out" (change)="typeChange('out')">
               Auszahlung
             </mat-radio-button>
           </mat-radio-group>
@@ -28,7 +28,7 @@
             <mat-label>
               Kategorien
             </mat-label>
-            <mat-select formControlName="category" required>
+            <mat-select formControlName="category">
               <mat-option *ngFor="let category of categories" [value]="category.c_id">
                 {{ category.name }}
               </mat-option>

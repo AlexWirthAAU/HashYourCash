@@ -38,6 +38,7 @@ export class AppComponent {
       this.walletName = currentData.name;
       this.walletAmount = currentData.amount;
     });
+    console.log(this.router.url)
   }
 
   resetWData() {
