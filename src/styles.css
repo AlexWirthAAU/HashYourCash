@@ -575,7 +575,7 @@
     }
   }
 
-  @media screen and (min-width:1000px){
+  @media screen and (min-width:1000px) and (max-width:1800px){
     /*MacBook 1280x800*/
     .bottom-menu {
       position: absolute;
