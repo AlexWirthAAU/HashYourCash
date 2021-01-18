@@ -64,8 +64,18 @@
   </div>
 </ng-template>
 
-<div [className]="contentClass">
+<div *ngIf="!(router.url.includes('/login')) && router.url != '/register' && router.url != '/forgotpw'" [className]="contentClass">
   <div class="container">
     <router-outlet></router-outlet>
   </div>
+</div>
+
+<div *ngIf="router.url.includes('/login') && !auth.loggedIn()" class="container">
+  <app-login></app-login>
+</div>
+<div *ngIf="router.url === '/forgotpw' && !auth.loggedIn()" class="container">
+  <app-forgotpw></app-forgotpw>
+</div>
+<div *ngIf="router.url === '/register' && !auth.loggedIn()" class="container">
+  <app-register></app-register>
 </div>

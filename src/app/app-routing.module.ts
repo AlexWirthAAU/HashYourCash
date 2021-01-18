@@ -27,12 +27,12 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'login/register',
+    path: 'register',
     pathMatch: 'full',
     component: RegisterComponent
   },
   {
-    path: 'login/forgotpw',
+    path: 'forgotpw',
     pathMatch: 'full',
     component: ForgotpwComponent
   },

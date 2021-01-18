@@ -1,9 +1,8 @@
-<div class="login-area">
-    <div class="container">
+
         <div class="row">
             <div class="col-xl-12">
-                <div class="main-wrapper">
-                    <div class="register-logo">
+                <div>
+                    <div class="single-login">
                         <img [src]=logo>
                     </div>
                     <div class="text-center pt-5 mb-20">
@@ -14,7 +13,7 @@
                         <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
                             <div class="form-area pt-3">
                                 <div class="input-group mb-3">
-                                    <mat-form-field fxFlex="90">
+                                    <mat-form-field fxFlex="100">
                                         <mat-label>
                                           E-Mail Adresse
                                         </mat-label>
@@ -28,7 +27,7 @@
                                 <button type="submit" class="btn btn-secondary btn-block">Senden</button>
                                 <br>
                                 <div style="text-align: center">
-                                    <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="''">Zurück zum
+                                    <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/login'">Zurück zum
                                         Login</a>
                                 </div>
                             </div>
@@ -44,5 +43,3 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>

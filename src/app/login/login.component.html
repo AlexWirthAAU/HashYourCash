@@ -1,27 +1,27 @@
-<div class="login-area">
-    <div class="container">
+<div>
+   
         <div class="row">
             <div class="col-xl-12">
-                <div class="main-wrapper">
+                <div>
                     <div class="single-login">
                         <img [src]=logo>
                     </div>
                     <div class="text-center">
                         <img style="width:20%" src="">
-                        <h2 class="title">HashYourCash</h2>
+                        <h2>HashYourCash</h2>
                     </div>
                     <div class="text-center">
                         <p class="subtitle">Tracke deine Einnahmen und Ausgaben</p>
                     </div>
                     
-                    <div class="text-center pt-5 mb-20">
+                    <div class="text-center pt-1 mb-20">
                         <h2 class="">Anmelden</h2>
                     </div>
 
                     <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
                         <div class="form-area pt-3">
                             <div class="input-group mb-3">
-                                <mat-form-field fxFlex="90">
+                                <mat-form-field fxFlex="100">
                                     <mat-label>
                                       E-Mail Adresse
                                     </mat-label>
@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <mat-form-field fxFlex="90">
+                                <mat-form-field fxFlex="100">
                                     <mat-label>
                                       Passwort
                                     </mat-label>
@@ -45,12 +45,12 @@
                             <div *ngIf="wrongPassword != null" class="alert alert-danger" role="alert">{{wrongPassword}}</div>
                             <button type="submit" class="btn btn-secondary btn-block">Einloggen</button>
                             <div style="text-align: center">
-                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'forgotpw'">Passwort vergessen?</a>
+                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/forgotpw'">Passwort vergessen?</a>
                             </div>
                             <br>
                             <h3 class="text-center pt-3">Du besitzt noch kein Konto?</h3>
                             <div style="text-align: center">
-                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'register'">...dann kannst du dich hier registrieren
+                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/register'">...dann kannst du dich hier registrieren
                                  </a><i class="fa fa-sign-in"></i>
                             </div>
                         </div>
@@ -58,5 +58,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </div>
