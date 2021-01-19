@@ -1,7 +1,13 @@
+h1{
+  padding-bottom: 10px;
+}
+
 a:visited{
   color:white;
 }  
-  
+  button{
+  margin-top: 5px;
+  }
   .light-blue-backdrop {
     background-color: #5cb3fd;
   }
@@ -20,19 +26,25 @@ a:visited{
    align-self: center;
    color: white;
  }
-  .Haus {
-    background-color: red;
-  }
-
-  .Auto {
-    background-color: green;
-  }
-
   .card {
     width: auto;
     height: auto;
   }
 
-  .btn-secondary{
-    margin-left: 30px;
-  }
+.goto:hover {
+  background-color: #064d6e;
+}
+.goto {
+  background-color: #085f87;
+  border-color:#085f87;
+  color: white;
+}
+.create{
+  color: #064d6e;
+  border-color: #064d6e;
+}
+.create:hover {
+  color: #fff;
+  background-color: #064d6e;
+  border-color: #064d6e;
+}

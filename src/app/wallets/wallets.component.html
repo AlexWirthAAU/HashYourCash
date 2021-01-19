@@ -1,4 +1,5 @@
 <div *ngIf="auth.loggedIn()">
+  <h1 class="text-center">Meine Wallets</h1>
   <div class="wallets">
     <div *ngIf="errorMessageW != null">
       <p>{{errorMessageW}}</p>
@@ -9,11 +10,18 @@
         <h4 class="card-title">{{elem.name}}</h4>
         <p class="card-text">{{elem.description}}</p>
         <br>
-        <button type="button" class="btn btn-primary" (click)="saveWalletId(elem); saveWallet(elem); firstPayment(elem)">
+        <div class="container-fluid">
+          
+        <button type="button" class="btn goto col-md-2 " (click)="saveWalletId(elem); saveWallet(elem); firstPayment(elem)">
           Gehe zum Wallet</button>
-        <button type="button" class="btn btn-secondary"
-          (click)="openBackDropCustomClass(edit); saveWallet(elem);">Bearbeiten</button>
-        <button type="button" class="btn btn-danger float-right" (click)="deleteWallet(elem); walletService.emptyWallet()">Löschen</button>
+        
+        
+        <button type="button" class="btn btn-secondary col-md-2 offset-md-1" (click)="openBackDropCustomClass(edit); saveWallet(elem);">Bearbeiten</button>
+       
+        
+        <button type="button" class="btn btn-danger col-md-2 offset-md-5" (click)="deleteWallet(elem); walletService.emptyWallet()">Löschen</button>
+      
+      </div>
       </div>
     </div>
     <div>
@@ -31,7 +39,7 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="walletData" (submit)="createWallet()">
-          <mat-card fxLayout="row wrap">
+          <div fxLayout="row wrap">
             <mat-form-field fxFlex="50">
               <mat-label>
                 Wallet Name
@@ -53,10 +61,10 @@
               <input matInput type="number" formControlName="amount" class="text-right" step="0.01">
               <span matSuffix>€</span>
             </mat-form-field>
-          </mat-card>
+          </div>
           <div class="modal-footer">
             <div class="actions">
-              <button mat-raised-button color="primary" type="submit" [disabled]="!walletData.valid">Erstellen</button>
+              <button mat-raised-button class="goto" type="submit" [disabled]="!walletData.valid">Erstellen</button>
             </div>
           </div>
         </form>
@@ -74,7 +82,7 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="editWalletData" (submit)="editWallet()">
-          <mat-card fxLayout="row wrap">
+          <div fxLayout="row wrap">
             <mat-form-field fxFlex="50">
               <mat-label>
                 {{userWallet.name}}
@@ -96,10 +104,10 @@
               <input matInput type="number" formControlName="amount" class="text-right" step="0.01">
               <span matSuffix>€</span>
             </mat-form-field>
-          </mat-card>
+          </div>
           <div class="modal-footer">
             <div class="actions">
-              <button mat-raised-button color="primary" type="submit" (click)="walletService.emptyWallet()">Ändern</button>
+              <button mat-raised-button class="goto" type="submit" (click)="walletService.emptyWallet()">Ändern</button>
             </div>
           </div>
         </form>
@@ -108,6 +116,6 @@
     </ng-template>
   </div>
 
-  <button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(content)">Erstelle ein
+  <button class="btn create mb-2 mr-2" (click)="openBackDropCustomClass(content)">Erstelle ein
     Wallet</button>
 </div>

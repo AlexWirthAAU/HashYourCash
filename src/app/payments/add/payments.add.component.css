@@ -1,3 +1,19 @@
 .mat-radio-button{
   margin: 0 12px;
 }
+
+.row {
+  margin: 0 auto;
+}
+
+form{
+  margin-top: 20px;
+}
+.pay:hover {
+  background-color: #064d6e;
+}
+.pay {
+  background-color: #085f87;
+  border-color:#085f87;
+  color: white;
+}

@@ -68,10 +68,6 @@ export class WalletsComponent implements OnInit {
     this.walletService.getWalletData(this.userWallet);
   }
 
-  gotoWallet(elem): void{
-    this.router.navigateByUrl('/wallets/' + elem.w_id);
-  }
-
   showWallets(): void {
     this.api.showW().subscribe(
       response => {
@@ -114,21 +110,6 @@ export class WalletsComponent implements OnInit {
   }
 }
 
-  checkP(elem): void {
-    this.api.getPayments(this.auth.getUser()?.u_id, elem.w_id).subscribe(
-      response => {
-        this.allPayments = response;
-        this.firstPayment(elem);
-        //console.log(response)
-        //this.firstPayment(elem);
-      },
-    error => {
-      console.error(error);
-    }) 
-    }
-test(elem){
-  console.log(elem);
-}
   createWallet() {
     if (this.walletData.value.name !== '' && this.walletData.value.amount !== '') {
       this.api.createW(this.walletData.value).subscribe(

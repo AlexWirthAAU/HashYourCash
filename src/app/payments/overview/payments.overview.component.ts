@@ -11,6 +11,7 @@ import {switchMap, tap} from 'rxjs/operators';
 @Component({
   selector: 'app-payments-overview',
   templateUrl: './payments.overview.component.html',
+  styleUrls: ['./payments.overview.component.css']
 })
 export class PaymentsOverviewComponent implements OnInit {
   faPlus = faPlus;
@@ -36,6 +37,11 @@ export class PaymentsOverviewComponent implements OnInit {
 
   public fabAddClick() {
     this.router.navigateByUrl('wallets/' + this.walletId + '/add');
+  }
+
+  public applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   ngOnInit(): void {

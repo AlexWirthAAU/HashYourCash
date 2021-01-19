@@ -1,11 +1,11 @@
+<div class="container">
 <div class="row">
   <div class="col-xl-12">
-    <div>
-      <div class="text-left pt-5 mb-20">
-        <h2>Zahlungen hinzufügen</h2>
-
+        <h2>Zahlung hinzufügen</h2>
+      
         <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
-          <mat-radio-group formControlName="type" required>
+          <div class="col-md-6" fxLayout="column wrap">
+          <mat-radio-group formControlName="type" required fxLayoutAlign="start">
             <mat-radio-button value="in" (change)="typeChange('in')">
               Einzahlung
             </mat-radio-button>
@@ -38,7 +38,7 @@
 
           <mat-form-field>
             <mat-label>
-              Beschreibung
+              Zahlungsgrund
             </mat-label>
             <input matInput type="text" formControlName="description">
           </mat-form-field>
@@ -52,12 +52,11 @@
           </mat-form-field>
 
           <div class="actions">
-            <button mat-raised-button color="primary" type="submit" [disabled]="!paymentForm.valid">Zahlung
+            <button mat-raised-button class="pay" type="submit" [disabled]="!paymentForm.valid">Zahlung
               verbuchen
             </button>
           </div>
+        </div>
         </form>
-      </div>
-    </div>
   </div>
 </div>
