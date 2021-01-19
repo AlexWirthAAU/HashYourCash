@@ -7,6 +7,11 @@ table {
   width: 100%;
 }
 
-th {
-  padding-right: 5px;
+.mat-row {
+  height: auto;
 }
+
+.mat-cell, .mat-header-cell {
+  padding: 8px 8px 8px 0;
+}
+
