@@ -48,3 +48,16 @@ a:visited{
   background-color: #064d6e;
   border-color: #064d6e;
 }
+
+.createEnabled:hover:enabled {
+  background-color: #064d6e;
+}
+.createEnabled {
+  background-color: #085f87;
+  border-color:#085f87;
+  color: white;
+}
+
+.snackStyle {
+color: warn;
+}

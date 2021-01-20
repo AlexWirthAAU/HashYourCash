@@ -38,7 +38,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="walletData" (submit)="createWallet()">
+        <form [formGroup]="walletData" (submit)="createWallet(); createSnackBar()">
           <div fxLayout="row wrap">
             <mat-form-field fxFlex="50">
               <mat-label>
@@ -64,7 +64,7 @@
           </div>
           <div class="modal-footer">
             <div class="actions">
-              <button mat-raised-button class="goto" type="submit" [disabled]="!walletData.valid">Erstellen</button>
+              <button mat-raised-button class="createEnabled" type="submit" [disabled]="!walletData.valid">Erstellen</button>
             </div>
           </div>
         </form>
@@ -107,7 +107,7 @@
           </div>
           <div class="modal-footer">
             <div class="actions">
-              <button mat-raised-button class="goto" type="submit" (click)="walletService.emptyWallet()">Ändern</button>
+              <button mat-raised-button class="goto" type="submit" (click)="walletService.emptyWallet(); editSnackBar()">Ändern</button>
             </div>
           </div>
         </form>

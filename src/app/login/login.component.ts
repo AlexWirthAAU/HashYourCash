@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   formValidation: boolean = false;
   wrongPassword: string = null;
   logo: string = 'assets/images/logo.png';
+  hide:boolean = true;
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router) {
     this.formData = new FormGroup({

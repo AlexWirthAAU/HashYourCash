@@ -13,8 +13,25 @@
 
 .jumbotron {
     padding-top: 20px;
+    padding-bottom: 50px;
 }
 
 .selection {
     margin-top: 5px;
 }
+
+.stats:hover {
+    background-color: #064d6e;
+  }
+  .stats {
+    background-color: #085f87;
+    border-color:#085f87;
+    color: white;
+  }
+
+  .prefix{
+    background-color: #085f87;
+    border-color:#085f87;
+    color: white;
+  }
+

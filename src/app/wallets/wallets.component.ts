@@ -8,6 +8,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {faHome, faCarSide} from '@fortawesome/free-solid-svg-icons';
 import {Wallet, InitialP} from '../model/wallet';
 import {Payment} from '../model/payment';
+import {MatSnackBar,MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-wallets',
@@ -15,6 +16,10 @@ import {Payment} from '../model/payment';
   styleUrls: ['./wallets.component.css'],
 })
 export class WalletsComponent implements OnInit {
+
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+
 
   closeResult: string;
   faHome = faHome;
@@ -46,11 +51,27 @@ export class WalletsComponent implements OnInit {
               public api: ApiService,
               public router: Router,
               private modalService: NgbModal,
-              public walletService: WalletService
+              public walletService: WalletService,
+              private _snackBar: MatSnackBar
   ){}
 
   ngOnInit(): void {
     this.showWallets();
+  }
+  editSnackBar() {
+    this._snackBar.open('Wallet wurde geändert', '', {
+      duration: 1500,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+  }
+
+  createSnackBar() {
+    this._snackBar.open('Wallet wurde erstellt', '', {
+      duration: 1500,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 
   openBackDropCustomClass(content) {

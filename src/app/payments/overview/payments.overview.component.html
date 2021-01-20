@@ -1,11 +1,13 @@
 <div class="row">
   <div class="col-xl-12">
         <h1 class="text-center">Meine Zahlungen</h1>
-
+     
+      
         <mat-form-field>
           <mat-label>Filter</mat-label>
           <input matInput (keyup)="applyFilter($event)" placeholder="Durchsuche deine Zahlungen" #input>
         </mat-form-field>
+        <button class="btn add mb-2 mr-2" (click)="goToAdd()">Zahlung hinzufügen</button>
 
         <table mat-table [dataSource]="dataSource" >
           <ng-container matColumnDef="type">
@@ -42,6 +44,3 @@
         </table>
   </div>
 </div>
-<button mat-fab color="primary" class="fab-bottom-right" aria-label="Zahlung hinzufügen" (click)="fabAddClick()">
-  <fa-icon [icon]="faPlus"></fa-icon>
-</button>

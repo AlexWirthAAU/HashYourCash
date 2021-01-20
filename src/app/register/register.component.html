@@ -48,18 +48,24 @@
                                         <mat-label>
                                           Passwort
                                         </mat-label>
-                                        <input matInput type="password" formControlName="password" required>
+                                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                      </button>
                                       </mat-form-field>
                                     <div class="invalid-feedback">
                                         Passwort muss angegeben werden
                                     </div>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <mat-form-field fxFlex="90">
+                                    <mat-form-field fxFlex="100">
                                         <mat-label>
                                           Passwort wiederholen
                                         </mat-label>
-                                        <input matInput type="password" formControlName="confirm_password" required>
+                                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirm_password" required>
+                                        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                      </button>
                                       </mat-form-field>
                                     <div class="invalid-feedback">
                                         Passwort muss wiederholt werden
@@ -68,7 +74,7 @@
                                 <div *ngIf="passwordErr != null" class="alert alert-danger" role="alert">{{passwordErr}}
                                 </div>
                                 <div *ngIf="emailErr != null" class="alert alert-danger" role="alert">{{emailErr}}</div>
-                                <button type="submit" class="btn btn-secondary btn-block">Jetzt registrieren</button>
+                                <button type="submit" class="btn register btn-block">Jetzt registrieren</button>
                                 <br>
                                 <h3 class="text-center pt-3">Bereits registriert?</h3>
                                 <div style="text-align: center">

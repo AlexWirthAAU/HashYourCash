@@ -3,13 +3,13 @@
   <div class="col-xl-12">
         <h2>Zahlung hinzufügen</h2>
       
-        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit(); createSnackBar()">
           <div class="col-md-6" fxLayout="column wrap">
           <mat-radio-group formControlName="type" required fxLayoutAlign="start">
-            <mat-radio-button value="in" (change)="typeChange('in')">
+            <mat-radio-button color="primary" value="in" (change)="typeChange('in')">
               Einzahlung
             </mat-radio-button>
-            <mat-radio-button value="out" (change)="typeChange('out')">
+            <mat-radio-button color="primary" value="out" (change)="typeChange('out')">
               Auszahlung
             </mat-radio-button>
           </mat-radio-group>
@@ -51,7 +51,8 @@
             <textarea matInput formControlName="comment"></textarea>
           </mat-form-field>
 
-          <div class="actions">
+          <div class="actions" fxLayoutAlign="space-between">
+            <button mat-raised-button class="pay" type="button" (click)=goBack()>Zurück</button>
             <button mat-raised-button class="pay" type="submit" [disabled]="!paymentForm.valid">Zahlung
               verbuchen
             </button>

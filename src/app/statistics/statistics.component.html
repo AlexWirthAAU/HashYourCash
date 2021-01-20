@@ -3,9 +3,9 @@
     <h3>Optionen</h3>
     <p>Standardmäßig werden alle Diagramme angezeigt.</p><br>
     <div role="group" aria-label="Basic example">
-        <button class="btn btn-secondary mr-1 selection"(click)="selectChart('1')" [ngClass]="{'btn-true': showCatPie, 'btn-false': !showCatPie}">Kategorien - Kreisdiagram</button>
-        <button class="btn btn-secondary mr-1 selection" (click)="selectChart('2')" [ngClass]="{'btn-true': showCatBar, 'btn-false': !showCatBar}">Kategorien - Balkendiagram</button>
-        <button class="btn btn-secondary mr-1 selection" (click)="selectChart('3')" [ngClass]="{'btn-true': showPayBar, 'btn-false': !showPayBar}">Einnahmen/Ausgaben - Balkendiagram</button>
+        <button class="btn stats mr-1 selection"(click)="selectChart('1')" [ngClass]="{'btn-true': showCatPie, 'btn-false': !showCatPie}">Kategorien - Kreisdiagram</button>
+        <button class="btn stats mr-1 selection" (click)="selectChart('2')" [ngClass]="{'btn-true': showCatBar, 'btn-false': !showCatBar}">Kategorien - Balkendiagram</button>
+        <button class="btn stats mr-1 selection" (click)="selectChart('3')" [ngClass]="{'btn-true': showPayBar, 'btn-false': !showPayBar}">Einnahmen/Ausgaben - Balkendiagram</button>
     </div>
     <br>
     <h3>Zeitfenster</h3>
@@ -14,17 +14,17 @@
         <div class="input-group mb-3" data-microtip-position="top" role="tooltip" data-microtip-size="large"
             aria-label="Bitte Zeitfenster auswählen">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">von </span>
+                <span class="input-group-text prefix" id="basic-addon1">von </span>
             </div>
             <input style="background-color:white;" type="text" class="form-control" formControlName="fromdate"
                 type="text" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle();" required>
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">bis </span>
+                <span class="input-group-text prefix" id="basic-addon1">bis </span>
             </div>
             <input style="background-color:white;" type="text" class="form-control" formControlName="todate" type="text"
                 ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle(); " required>
         </div>
-        <button class="btn btn-secondary float-right" type="submit">Filtern</button>
+        <button class="btn stats special float-right" type="submit">Filtern</button>
     </form>
 </div>
 
