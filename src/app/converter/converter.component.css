@@ -4,6 +4,38 @@
     margin-left: 300px;
    
 }
+
+@media (max-width: 800px){
+    .convert{
+        text-align: left;
+        margin-left: 0px;
+    }
+}
+@media (max-width: 480px){
+    h1{
+        text-align: center;
+    }
+}
+@media (max-width: 800px){
+    .entspricht{
+        text-align: center;
+        margin-right: 60px;
+    }
+}
+
+@media (max-width: 800px){
+select {
+    position: absolute;
+}
+}
+@media (max-width: 812px){
+    input{
+        margin: 2px;
+        
+    
+    }
+}
+
 .entspricht{
 letter-spacing: 2px;
 color: rgb(0, 0, 0);
@@ -20,7 +52,8 @@ text-transform: uppercase;
 letter-spacing: 2px;
 color: rgb(0, 0, 0);
 font-size: xx-large;
-margin-left: 250px;
+text-align: center;
+
 }
 
 input, select{
@@ -49,3 +82,6 @@ letter-spacing: 2px;
 footer{
     color: rgb(38, 38, 212);
 }
+
+
+ 
