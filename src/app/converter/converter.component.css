@@ -1,21 +1,25 @@
 
 .convert{
     padding:10px;
-    margin-left: 300px;
+    margin-left: 360px;
+
    
 }
 
 @media (max-width: 800px){
     .convert{
-        text-align: left;
-        margin-left: 0px;
+    
+        margin-left: auto;
     }
 }
-@media (max-width: 480px){
-    h1{
-        text-align: center;
+
+@media (max-width: 800px){
+    .h1{
+       margin-left: 100px;
     }
 }
+
+
 @media (max-width: 800px){
     .entspricht{
         text-align: center;
@@ -28,9 +32,10 @@ select {
     position: absolute;
 }
 }
-@media (max-width: 812px){
+@media (max-width: 800px){
     input{
-        margin: 2px;
+        text-align: left;
+        margin-left: 0px;
         
     
     }
@@ -52,9 +57,8 @@ text-transform: uppercase;
 letter-spacing: 2px;
 color: rgb(0, 0, 0);
 font-size: xx-large;
-margin-left: 270px;
-
-
+text-align: center;
+display: block;
 
 }
 
