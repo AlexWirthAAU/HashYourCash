@@ -174,14 +174,14 @@ export class StatisticsComponent implements OnInit {
         labels: ["Einnahmen", "Ausgaben"],
         datasets: [{
           label: "Zahlungen",
-          backgroundColor: ["#046b12", "#ad1818"],
+          backgroundColor: ["#3ab058", "#c4394a"],
           data: this.inandoutAmount,
         }]
       },
       options: {
         title: {
           display: true,
-          text: 'Einnahmen und Ausgaben Delta: ' + (this.inandoutAmount[0]-this.inandoutAmount[1]) + "€",
+          text: 'Einnahmen und Ausgaben im Vergleich: ' + (this.inandoutAmount[0]-this.inandoutAmount[1]) + "€",
           fontSize: 18,
         },
         legend: {

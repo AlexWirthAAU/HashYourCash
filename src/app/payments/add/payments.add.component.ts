@@ -6,6 +6,7 @@ import {Payment} from '../../model/payment';
 import {tap} from 'rxjs/operators';
 import {Category} from '../../model/category';
 import {WalletService} from '../../services/wallet.service';
+import {MatSnackBar,MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-payments-add',
@@ -17,12 +18,16 @@ export class PaymentsAddComponent implements OnInit{
   categories: Category[];
   walletId: number;
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+
   constructor(
     private fb: FormBuilder,
     private api: ApiService,
     private router: Router,
     public route: ActivatedRoute,
-    public walletService: WalletService
+    public walletService: WalletService,
+    private _snackBar: MatSnackBar
   ){
     this.route.params.subscribe(
       params => {
@@ -82,5 +87,16 @@ export class PaymentsAddComponent implements OnInit{
       this.paymentForm.get('category').setValidators([Validators.required])
       this.paymentForm.get('category').updateValueAndValidity();
     }
+  }
+  goBack(){
+    this.router.navigateByUrl('wallets/' + this.walletId);
+  }
+
+  createSnackBar() {
+    this._snackBar.open('Zahlung wurde gespeichert', '', {
+      duration: 1500,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 }

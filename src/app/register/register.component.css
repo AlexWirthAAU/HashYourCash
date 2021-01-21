@@ -1,0 +1,8 @@
+.register:hover {
+    background-color: #064d6e;
+  }
+  .register {
+    background-color: #085f87;
+    border-color:#085f87;
+    color: white;
+  }

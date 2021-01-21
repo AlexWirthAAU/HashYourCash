@@ -1,0 +1,16 @@
+a{
+    font-size:1.2em;
+}
+
+.login:hover {
+    background-color: #064d6e;
+  }
+  .login {
+    background-color: #085f87;
+    border-color:#085f87;
+    color: white;
+  }
+
+  .text-center > img{
+    width: 20%;
+}

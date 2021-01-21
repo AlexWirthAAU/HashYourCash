@@ -35,7 +35,7 @@ export class PaymentsOverviewComponent implements OnInit {
     ];
   }
 
-  public fabAddClick() {
+  public goToAdd() {
     this.router.navigateByUrl('wallets/' + this.walletId + '/add');
   }
 

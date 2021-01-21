@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   passwordErr: string = null;
   emailErr: string = null;
   logo: string = 'assets/images/logo.png';
+  hide:boolean = true;
 
 
   constructor(public api: ApiService, public router: Router) {

@@ -7,7 +7,7 @@
                         <img [src]=logo>
                     </div>
                     <div class="text-center">
-                        <img style="width:20%" src="">
+                        <img src="">
                         <h2>HashYourCash</h2>
                     </div>
                     <div class="text-center">
@@ -36,21 +36,24 @@
                                     <mat-label>
                                       Passwort
                                     </mat-label>
-                                    <input matInput type="password" formControlName="password" required>
+                                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                    <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </button>
                                   </mat-form-field>
                                 <div class="invalid-feedback d-block" *ngIf="formData.controls.password.errors && formValidation==true">
                                     Passwort muss angegeben werden
                                 </div>
                             </div>
                             <div *ngIf="wrongPassword != null" class="alert alert-danger" role="alert">{{wrongPassword}}</div>
-                            <button type="submit" class="btn btn-secondary btn-block">Einloggen</button>
+                            <button type="submit" class="btn login btn-block">Einloggen</button>
                             <div style="text-align: center">
-                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/forgotpw'">Passwort vergessen?</a>
+                                <a class="text-center pt-3" [routerLink]="'/forgotpw'">Passwort vergessen?</a>
                             </div>
                             <br>
                             <h3 class="text-center pt-3">Du besitzt noch kein Konto?</h3>
                             <div style="text-align: center">
-                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/register'">...dann kannst du dich hier registrieren
+                                <a class="text-center pt-3" [routerLink]="'/register'">...dann kannst du dich hier registrieren
                                  </a><i class="fa fa-sign-in"></i>
                             </div>
                         </div>
