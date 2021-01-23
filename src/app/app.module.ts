@@ -27,6 +27,7 @@ import { WalletsComponent } from './wallets/wallets.component';
 import {MaterialModule} from './material.module';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { CurrencyTickerstComponent } from './converter/currency-tickerst/currency-tickerst.component';
+import { OptionsComponent } from './options/options.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CurrencyTickerstComponent } from './converter/currency-tickerst/currenc
     TickersComponent,
     WalletsComponent,
     StatisticsComponent,
-    CurrencyTickerstComponent
+    CurrencyTickerstComponent,
+    OptionsComponent
   ],
   imports: [
     ReactiveFormsModule,
