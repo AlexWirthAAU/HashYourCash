@@ -59,19 +59,29 @@ export class WalletsComponent implements OnInit {
     this.showWallets();
   }
   editSnackBar() {
-    this._snackBar.open('Wallet wurde geändert', '', {
+    this._snackBar.open(this.editWalletData.value.name + ' wurde geändert', '', {
+      duration: 1500,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+    this.walletService.emptyWallet();
+  }
+
+  createSnackBar() {
+    this._snackBar.open(this.walletData.value.name + ' wurde erstellt', '', {
       duration: 1500,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
   }
 
-  createSnackBar() {
-    this._snackBar.open('Wallet wurde erstellt', '', {
+  deleteSnackBar(){
+    this._snackBar.open( this.userWallet.name + ' wurde gelöscht', '', {
       duration: 1500,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
+    this.walletService.emptyWallet();
   }
 
   openBackDropCustomClass(content) {

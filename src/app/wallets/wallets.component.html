@@ -19,7 +19,7 @@
         <button type="button" class="btn btn-secondary col-md-2 offset-md-1" (click)="openBackDropCustomClass(edit); saveWallet(elem);">Bearbeiten</button>
        
         
-        <button type="button" class="btn btn-danger col-md-2 offset-md-5" (click)="deleteWallet(elem); walletService.emptyWallet()">Löschen</button>
+        <button type="button" class="btn btn-danger col-md-2 offset-md-5" (click)="saveWallet(elem); openBackDropCustomClass(delete)">Löschen</button>
       
       </div>
       </div>
@@ -107,7 +107,7 @@
           </div>
           <div class="modal-footer">
             <div class="actions">
-              <button mat-raised-button class="goto" type="submit" (click)="walletService.emptyWallet(); editSnackBar()">Ändern</button>
+              <button mat-raised-button class="goto" type="submit" (click)="editSnackBar()">Ändern</button>
             </div>
           </div>
         </form>
@@ -115,6 +115,27 @@
       </div>
     </ng-template>
   </div>
+
+  <div class="modalPopover">
+    <ng-template #delete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Wallet löschen</h4>
+    <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Möchtest du das Wallet <span class="hyc">"{{userWallet.name}}"</span> wirklich löschen?</strong></p>
+    <br>
+    <p>Alle Zahlungen auf diesem Wallet werden dauerhaft gelöscht. Dieser Schritt kann nicht mehr rückgängig gemacht werden.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Abbrechen</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Ok click'); deleteWallet(userWallet); deleteSnackBar()">Löschen</button>
+  </div>
+    </ng-template>
+</div>
 
   <button class="btn create mb-2 mr-2" (click)="openBackDropCustomClass(content)">Erstelle ein
     Wallet</button>
