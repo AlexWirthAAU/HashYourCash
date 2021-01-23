@@ -6,3 +6,22 @@
     border-color:#085f87;
     color: white;
   }
+
+  .menu-open > i {
+    font-size: 20px;
+  }
+  .title-name{
+    color: white;
+  }
+  .change{
+    color: #064d6e;
+    border-color: #064d6e;
+    margin: 10px 0 15px 0;
+  }
+  .change:hover {
+    color: #fff;
+    background-color: #064d6e;
+    border-color: #064d6e;
+  }
+
+ 

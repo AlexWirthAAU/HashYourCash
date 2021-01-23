@@ -4,7 +4,7 @@ import {ApiService} from './services/api.service';
 import {AuthService} from './services/auth.service';
 import {WalletService} from './services/wallet.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {faChartPie, faExchangeAlt, faMoneyBillWave, faWallet} from '@fortawesome/free-solid-svg-icons';
+import {faChartPie, faExchangeAlt, faMoneyBillWave, faWallet, faUser} from '@fortawesome/free-solid-svg-icons';
 import {catchError, tap} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 
@@ -22,6 +22,7 @@ export class AppComponent {
   faMoneyBillWave = faMoneyBillWave;
   faConverter = faExchangeAlt;
   faChartPie = faChartPie;
+  faUser = faUser;
   walletName: any;
   walletAmount: any;
 
@@ -67,7 +68,6 @@ export class AppComponent {
   }
 
   openUserMenuModal(content) {
-    //DEMO
     this.modalReference = this.modalService.open(content, {
       ariaLabelledBy: 'modal-basic-title',
       backdrop: 'static',
@@ -77,5 +77,18 @@ export class AppComponent {
     }, (reason) => {
 
     });
+  }
+
+
+  changeMail(){
+    this.auth.changeMail = true;
+    this.auth.changePw = false;
+    this.router.navigateByUrl('/optionen');
+  }
+
+  changePw(){
+    this.auth.changeMail = false;
+    this.auth.changePw = true;
+    this.router.navigateByUrl('/optionen');
   }
 }
