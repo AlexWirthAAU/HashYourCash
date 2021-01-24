@@ -83,12 +83,12 @@ export class AppComponent {
   changeMail(){
     this.auth.changeMail = true;
     this.auth.changePw = false;
-    this.router.navigateByUrl('/optionen');
+    this.router.navigateByUrl('/options');
   }
 
   changePw(){
     this.auth.changeMail = false;
     this.auth.changePw = true;
-    this.router.navigateByUrl('/optionen');
+    this.router.navigateByUrl('/options');
   }
 }

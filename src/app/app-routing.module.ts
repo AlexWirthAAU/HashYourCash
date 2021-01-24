@@ -71,7 +71,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'optionen',
+    path: 'options',
     pathMatch: 'full',
     component: OptionsComponent,
     canActivate: [AuthGuard]
