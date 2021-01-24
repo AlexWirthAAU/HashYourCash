@@ -17,7 +17,7 @@ export class OptionsComponent implements OnInit {
   pwData: any;
   userEmails: any[];
   emailTaken: string = null;
-  emailErr: string;
+  emailErr: string = null;
   emailWrong: string;
   currentUser: any;
   pwErr:string;
@@ -46,7 +46,6 @@ export class OptionsComponent implements OnInit {
   })
   }
   ngOnInit(): void {
-    this.currentUser = this.auth.getUser()
     this.getAllEmails();
   }
  
@@ -71,11 +70,16 @@ changeMail(){
   this.emailErr = null;
   this.currentUser = this.auth.getUser();
   if (this.currentUser.email === this.mailData.value.oldMail) {
-    if (this.mailData.value.newMail === this.mailData.value.newMail_confirm) {
+    this.emailWrong = null;
+    if (this.mailData.value.newMail !== this.mailData.value.newMail_confirm) {
+      this.emailErr = "Emails stimmen nicht überein!" 
+    } else {
       if(this.mailData.value.newMail !== "" && this.mailData.value.newMail_confirm !== ""){
       if (this.checkEmail()) {
         this.api.changeMail(this.mailData.value).subscribe(
           response => {
+            this.currentUser.email = this.mailData.value.newMail
+            this.auth.setUser(this.currentUser);
             this.router.navigate(['/wallets'])
             this.editMailSnackBar();
           }, //success path
@@ -84,8 +88,6 @@ changeMail(){
           } //error path
         );
       }}
-    } else {
-      this.emailErr = "Emails stimmen nicht überein!"
     } 
   } else {
     this.emailWrong = "Diese Mail entspricht nicht der Benutzermail."
@@ -99,15 +101,18 @@ changePw(){
       const changeP: Password = {
         oldPw: this.pwData.value.oldPw,
         newPw: this.pwData.value.newPw,
-        currentPw: this.currentUser.u_password
+        currentPw: this.currentUser.u_password,
+        email: this.currentUser.email
       } 
       this.api.changePw(changeP).subscribe(
         response => {
+          this.currentUser.u_password = response.pw;
+          this.auth.setUser(this.currentUser);
           this.router.navigate(['/wallets'])
           this.editPwSnackBar();
         }, //success path
         error => {
-          console.log(error)
+          console.log(error);
           this.pwWrong = "Passwort stimmt nicht mit dem aktuellen Passwort überein"
         } //error path
       );
