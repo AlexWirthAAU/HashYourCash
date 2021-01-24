@@ -116,7 +116,6 @@ export class WalletsComponent implements OnInit {
     );
   }
   firstPayment(elem):void {
-    //this.checkP(elem);
     if(elem.is_initiated === false){
     const initialP: InitialP = {
       type: "in",
