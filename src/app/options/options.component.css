@@ -1,0 +1,14 @@
+p{
+    color: red;
+    font-size: smaller;
+}
+
+.change:hover:enabled {
+    background-color: #064d6e;
+  }
+  .change {
+    background-color: #085f87;
+    border-color:#085f87;
+    color: white;
+  }
+
