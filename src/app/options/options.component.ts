@@ -49,6 +49,7 @@ export class OptionsComponent implements OnInit {
     this.getAllEmails();
   }
  
+  //Footer Popup wenn Mail erfolgreich geändert wurde
   editMailSnackBar() {
     this._snackBar.open('Email wurde geändert', '', {
       duration: 1500,
@@ -56,7 +57,7 @@ export class OptionsComponent implements OnInit {
       verticalPosition: this.verticalPosition,
     });
   }
-
+//Footer Popup wenn PW erfolgreich geändert wurde
   editPwSnackBar(){
     this._snackBar.open('Passwort wurde geändert', '', {
       duration: 1500,
@@ -65,17 +66,21 @@ export class OptionsComponent implements OnInit {
     });
   }
 
-
+//Funktion für Änderung Mail
 changeMail(){
   this.emailErr = null;
   this.currentUser = this.auth.getUser();
+  //check ob aktuelle Mail gleich der eingegebenen alten Mail ist
   if (this.currentUser.email === this.mailData.value.oldMail) {
     this.emailWrong = null;
     if (this.mailData.value.newMail !== this.mailData.value.newMail_confirm) {
+      //check ob beide neuen Mails übereinstimmen
       this.emailErr = "Emails stimmen nicht überein!" 
     } else {
       if(this.mailData.value.newMail !== "" && this.mailData.value.newMail_confirm !== ""){
+        //check ob keins der neuen Felder leer ist
       if (this.checkEmail()) {
+        //check ob die neue Mail bereits in der DB existiert
         this.api.changeMail(this.mailData.value).subscribe(
           response => {
             this.currentUser.email = this.mailData.value.newMail
@@ -94,10 +99,13 @@ changeMail(){
   }
 }
 
+//Passwort ändern
 changePw(){
   this.currentUser = this.auth.getUser();
   if(this.pwData.value.newPw != "" && this.pwData.value.newPw_confirm != ""){
+    //check ob keins der Felder für das neue PW leer ist
     if(this.pwData.value.newPw === this.pwData.value.newPw_confirm){
+      //check ob beide neuen Pws übereinstimmen
       const changeP: Password = {
         oldPw: this.pwData.value.oldPw,
         newPw: this.pwData.value.newPw,
