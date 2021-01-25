@@ -4,6 +4,12 @@ import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 
+/**
+ * @AlexWirthAAU
+ * Komponente, um sein Passwort zurück zu setzen. Am Server wird überprüft ob E-Mail existiert und folglich ein jwt erzeugt,
+ * mittels dem man sein Passwort zurück gesetzt wird.
+*/
+
 @Component({
   selector: 'app-forgotpw',
   templateUrl: './forgotpw.component.html',

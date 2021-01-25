@@ -1,45 +1,42 @@
-
-        <div class="row">
-            <div class="col-xl-12">
-                <div>
-                    <div class="single-login">
-                        <img [src]=logo>
-                    </div>
-                    <div class="text-center pt-5 mb-20">
-                        <h2 class="">Passwort zurücksetzen</h2>
-                    </div>
-
-                    <div *ngIf="message === null">
-                        <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
-                            <div class="form-area pt-3">
-                                <div class="input-group mb-3">
-                                    <mat-form-field fxFlex="100">
-                                        <mat-label>
-                                          E-Mail Adresse
-                                        </mat-label>
-                                        <input matInput type="email" formControlName="email" required>
-                                      </mat-form-field>
-                                    <div class="invalid-feedback">
-                                        E-Mail Adresse muss angegeben werden
-                                    </div>
-                                </div>
-                                <div *ngIf="errorMessage !== null" class="alert alert-danger" role="alert">{{errorMessage}}</div>
-                                <button type="submit" class="btn forgot btn-block">Senden</button>
-                                <br>
-                                <div style="text-align: center">
-                                    <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/login'">Zurück zum
-                                        Login</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div *ngIf="message != null">
-                        <h5 style="text-align: center">{{ message }}</h5>
+<div class="row">
+    <div class="col-xl-12">
+        <div>
+            <div class="single-login">
+                <img [src]=logo>
+            </div>
+            <div class="text-center pt-5 mb-20">
+                <h2 class="">Passwort zurücksetzen</h2>
+            </div>
+            <div *ngIf="message === null">
+                <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
+                    <div class="form-area pt-3">
+                        <div class="input-group mb-3">
+                            <mat-form-field fxFlex="100">
+                                <mat-label>
+                                    E-Mail Adresse
+                                </mat-label>
+                                <input matInput type="email" formControlName="email" required>
+                                <mat-error *ngIf="formData.controls.email.status === 'INVALID'">E-Mail Adresse muss angegeben werden</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div *ngIf="errorMessage !== null" class="alert alert-danger" role="alert">{{errorMessage}}
+                        </div>
+                        <button type="submit" class="btn forgot btn-block">Senden</button>
                         <br>
                         <div style="text-align: center">
-                            <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="''">Zurück zum Login</a>
+                            <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/login'">Zurück zum
+                                Login</a>
                         </div>
                     </div>
+                </form>
+            </div>
+            <div *ngIf="message != null">
+                <h5 style="text-align: center">{{ message }}</h5>
+                <br>
+                <div style="text-align: center">
+                    <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="''">Zurück zum Login</a>
                 </div>
             </div>
         </div>
+    </div>
+</div>

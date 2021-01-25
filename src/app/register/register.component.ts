@@ -3,6 +3,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 
+/**
+ * @AlexWirthAAU
+ * Register Komponente die Daten an den Server sendet, wo sie in der DB gespeichert werden.
+ * Einige Überprüfungen finden schon hier statt: 
+ *    Alle Daten sind Pflichtfelder
+ *    E-Mail Adresse bereits vergeben? -> wird geprüft
+ *    Passwort muss 8 Zeichen, Groß/Kleinbuchstaben, Zahlen und Sonderzeichen haben.
+ * Wenn Registrierung erfolgreich -> router zu login
+ */
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -24,7 +34,7 @@ export class RegisterComponent implements OnInit {
       first_name: new FormControl('', Validators.required),
       last_name: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      password: new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
       confirm_password: new FormControl('', Validators.required)
     })
   }
@@ -64,8 +74,10 @@ export class RegisterComponent implements OnInit {
         }
       } else {
         this.passwordErr = "Passwörter stimmen nicht überein!"
+        console.log(this.passwordErr)
       }
     }
+    
   }
 
   checkEmail() {

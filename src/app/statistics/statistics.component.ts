@@ -4,6 +4,12 @@ import { Chart } from 'node_modules/chart.js'
 import { ApiService } from '../services/api.service';
 import { WalletService } from '../services/wallet.service';
 
+/**
+ * @AlexWirthAAU
+ * Mithilfe con chart.js werden 3 verschiedene Diagramme dargestellt. Dazu werden die Daten vom Server geladen. 
+ * Abhängig von der User-Eingabe können auch nur Daten innerhalb eines bestimmten Zeitraums dargestellt werden.
+ */
+
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',

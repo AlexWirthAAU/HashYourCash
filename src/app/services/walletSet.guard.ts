@@ -3,9 +3,11 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { WalletService } from './wallet.service';
 
 @Injectable({providedIn:'root'})
-/*
-class is responsible for checking auth access
-*/
+/**
+ * @AlexWirthAAU
+ * Klassen, die CanActivate implemtieren können im app-routing verwendet werden um Bedingungen zu checken.
+ * In diesem Fall wird überprüft ob eine Wallet gewählt wurde. Die Statistiken dürfen nur aufgerufen werden, wenn eine Wallet gewählt wurde.
+ */
 export class WalletSetGuard implements CanActivate{
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
        if(this.walletService.getWallet() != null){
