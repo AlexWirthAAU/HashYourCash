@@ -24,14 +24,14 @@ export class ConverterComponent implements OnInit {
 
       async function currency() {
       const result = await fetch(api_URL);
-      console.log(result); 
+      //console.log(result); 
       const data = await result.json();
-      console.log(data);
-      console.log(data.rates);
+      //console.log(data);
+      //console.log(data.rates);
       const arrKeys = Object.keys(data.rates)
-      console.log(arrKeys[2]);
+      //console.log(arrKeys[2]);
       const rates = data.rates;
-      console.log(rates);
+      //console.log(rates);
 
 
         arrKeys.map(item => {
@@ -42,7 +42,7 @@ export class ConverterComponent implements OnInit {
        for (let i = 0; i < select.length; i++) {
          select[i].innerHTML = html;
 
-         console.log(rates[select[0].value]) //rates
+         //console.log(rates[select[0].value]) //rates
 
 
          input[0].addEventListener("keyup", () => {

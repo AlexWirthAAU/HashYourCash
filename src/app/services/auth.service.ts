@@ -12,6 +12,8 @@ export class AuthService {
 
   private user: User;
   apiURL: string;
+  changeMail: boolean;
+  changePw: boolean;
 
   constructor(public httpClient: HttpClient, public router: Router) {
     this.apiURL = "https://hashyourcash.herokuapp.com";

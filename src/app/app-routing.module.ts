@@ -12,6 +12,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { WalletsComponent } from './wallets/wallets.component';
 import { WalletSetGuard } from './services/walletSet.guard';
 import {LoginComponent} from './login/login.component';
+import {OptionsComponent} from './options/options.component';
 
 
 
@@ -68,11 +69,13 @@ const routes: Routes = [
     pathMatch: 'full',
     component: ConverterComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'options',
+    pathMatch: 'full',
+    component: OptionsComponent,
+    canActivate: [AuthGuard]
   }
-
-
-
-  // add my converter Path
 
 ];
 

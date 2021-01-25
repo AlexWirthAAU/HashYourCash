@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 import {User} from '../model/user';
 import {InitialP, Wallet} from '../model/wallet';
 import {Category} from '../model/category';
+import {Password} from '../model/options';
 
 @Injectable({
   providedIn: 'root'
@@ -176,4 +177,23 @@ export class ApiService {
         })
       });
   }
+
+  public changeMail(mailData) {
+    return this.httpClient.post<any>(this.apiURL + '/options/mail', mailData,
+    {
+      headers: new HttpHeaders({
+        Authorization: localStorage.getItem('access_token')
+      })
+    });
+  }
+
+  public changePw(pass: Password) {
+    return this.httpClient.post<Password>(this.apiURL + '/options/password', pass,
+    {
+      headers: new HttpHeaders({
+        Authorization: localStorage.getItem('access_token')
+      })
+    });
+  }
+
 }

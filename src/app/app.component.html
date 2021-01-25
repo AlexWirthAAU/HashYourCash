@@ -1,22 +1,24 @@
 <div *ngIf="auth.loggedIn()">
   <div class="header-top">
-    <div class="row ">
+    <div class="row menubar">
       <div class="col ml-3">
         <div class="icon">
-          <div class="menu-open" (click)='toggleMenu()'><i style="font-size: 20px;" class="fa fa-bars"></i></div>
+          <div class="menu-open" (click)='toggleMenu()'><i class="fa fa-bars"></i></div>
         </div>
       </div>
       <div class="col-8 align-self-center">
-        <div class="text-center title-name" style="color: white">
+        <div class="text-center title-name" >
           <span>{{auth.getUser()?.first_name}} {{auth.getUser()?.last_name}}</span>
           <span *ngIf="walletService.getWallet() != null"> - {{walletService.getWallet().name}}: </span>
           <span *ngIf="walletService.getWallet() != null">{{walletService.getWallet().amount}} €</span>
         </div>
       </div>
       <div class="col mr-3">
-        <div class="icon">
-          <div class="menu-open float-right" (click)="openUserMenuModal(content)"><i style="font-size: 20px;"
-              class="fa fa-sign-out"></i></div>
+        <div class="icons">
+          <div class="menu-open float-right" (click)="openUserMenuModal(content)">
+            <fa-icon [icon]="faUser" size="1x">
+
+            </fa-icon></div>
         </div>
       </div>
     </div>
@@ -59,7 +61,13 @@
     </button>
   </div>
   <div class="modal-body">
-    <button type="button" class="btn logout btn-block"
+   <p>Möchtest du deine Email ändern?</p>
+   <button type="button" class="btn change" (click)="changeMail(); modal.dismiss('Cross click')">Email ändern</button>
+   <p>Möchtest du dein Passwort ändern?</p>
+   <button type="button" class="btn change" (click)="changePw(); modal.dismiss('Cross click')">Passwort ändern</button>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn logout btn-block"
       (click)="modalService.dismissAll(); auth.logout(); resetWData()">Ausloggen</button>
   </div>
 </ng-template>

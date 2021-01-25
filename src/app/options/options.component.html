@@ -1,0 +1,89 @@
+<div *ngIf="auth.changeMail">
+    <div class="row">
+        <div class="col-xl-12">
+              <h2>Email ändern</h2>
+              <form [formGroup]="mailData" (ngSubmit)="changeMail()">
+                <div class="col-md-6" fxLayout="column wrap">
+                <mat-form-field>
+                    <mat-label>
+                        Bisherige E-Mail Adresse
+                      </mat-label>
+                      <input matInput type="email" formControlName="oldMail" required>
+                </mat-form-field>
+                <div *ngIf="emailWrong">
+                    <p>{{emailWrong}}</p>
+                </div>
+                <mat-form-field>
+                    <mat-label>
+                        Neue E-Mail Adresse
+                      </mat-label>
+                      <input matInput type="email" formControlName="newMail" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>
+                        Neue E-Mail Adresse
+                      </mat-label>
+                      <input matInput type="email" formControlName="newMail_confirm" required>
+                </mat-form-field>
+                <div *ngIf="emailErr">
+                    <p>{{emailErr}}</p>
+                </div>
+                <div *ngIf="emailTaken">
+                    <p>{{emailTaken}}</p>
+                </div>
+                <div class="actions" >
+                  <button mat-raised-button class="change" type="submit" [disabled]="!mailData.valid">Email ändern</button>
+                </div>
+              </div>
+              </form>
+        </div>
+</div>
+</div>
+
+<div *ngIf="auth.changePw">
+    <div class="row">
+        <div class="col-xl-12">
+              <h2>Passwort ändern</h2>
+              <form [formGroup]="pwData" (ngSubmit)="changePw()">
+                <div class="col-md-6" fxLayout="column wrap">
+                    <mat-form-field>
+                        <mat-label>
+                          Altes Passwort eingeben
+                        </mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="oldPw" required>
+                        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      </mat-form-field>
+                <div *ngIf="pwWrong">
+                    <p>{{pwWrong}}</p>
+                </div>
+                <mat-form-field>
+                        <mat-label>
+                          Neues Passwort eingeben
+                        </mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="newPw" required>
+                        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <mat-label>
+                          Neues Passwort wiederholen
+                        </mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="newPw_confirm" required>
+                        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      </mat-form-field>
+                <div *ngIf="pwErr">
+                    <p>{{pwErr}}</p>
+                </div>
+                <div class="actions" >
+                  <button mat-raised-button class="change" type="submit" [disabled]="!pwData.valid">Passwort ändern</button>
+                </div>
+              </div>
+              </form>
+        </div>
+</div>
+</div>
