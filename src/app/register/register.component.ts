@@ -3,6 +3,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 
+/**
+ * @AlexWirthAAU
+ * Register Komponente die Daten an den Server sendet, wo sie in der DB gespeichert werden.
+ * Einige Überprüfungen finden schon hier statt: 
+ *    Alle Daten sind Pflichtfelder
+ *    E-Mail Adresse bereits vergeben? -> wird geprüft
+ *    Passwort muss 8 Zeichen, Groß/Kleinbuchstaben, Zahlen und Sonderzeichen haben.
+ * Wenn Registrierung erfolgreich -> router zu login
+ */
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

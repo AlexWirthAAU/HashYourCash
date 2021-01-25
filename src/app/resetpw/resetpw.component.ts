@@ -4,6 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 
+/**
+ * @AlexWirthAAU
+ * Der Token wird als Parameter in der URL mitgeliefert (aus der E-Mail aufrufbar).
+ * Token wird verifiziert (30 Minuten gültig).
+ * Wenn Token gültig, kann PW an Server gesendet werden wo es gespeichert wird. (Vorher wieder PW Validation bzgl. Sicherheit)
+ */
+
 @Component({
   selector: 'app-resetpw',
   templateUrl: './resetpw.component.html',
@@ -17,6 +24,7 @@ export class ResetpwComponent implements OnInit {
   resetToken: string;
   passwordErr: string = null;
   tokenError: string = null;
+  hide:boolean = true;
 
 
   constructor(public router: Router, public api: ApiService, public auth: AuthService, public route: ActivatedRoute) {
@@ -33,7 +41,7 @@ export class ResetpwComponent implements OnInit {
     )
 
     this.formData = new FormGroup({
-      password: new FormControl('', Validators.required),
+      password: new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
       confirm_password: new FormControl('', Validators.required)
     })
   }

@@ -3,9 +3,13 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '
 import {AuthService} from './auth.service';
 
 @Injectable({providedIn: 'root'})
-/*
-class is responsible for checking auth access
-*/
+
+/**
+ * @AlexWirthAAU
+ * Klassen, die CanActivate implemtieren können im app-routing verwendet werden um Bedingungen zu checken.
+ * In diesem Fall wird überprüft ob der Nutzer eingeloggt ist. Gewisse Routen dürfen nur aufgerufen werden, wenn der User eingeloggt ist.
+ */
+
 export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.auth.loggedIn()) {

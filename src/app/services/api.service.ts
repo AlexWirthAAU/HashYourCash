@@ -11,8 +11,9 @@ import {Password} from '../model/options';
 @Injectable({
   providedIn: 'root'
 })
-/* @AlexWirthAAU
-    Service zum Abhandeln aller API-calls.
+/**
+ * @AlexWirthAAU
+ * Service zum Abhandeln aller API-calls zum Server (gehostet über Heroku)
 */
 
 

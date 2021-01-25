@@ -1,9 +1,8 @@
-<div class="login-area">
-    <div class="container">
+
+ 
         <div class="row">
             <div class="col-xl-12">
                 <div class="main-wrapper">
-                    
                     <div class="text-center pt-5 mb-20">
                         <h2 class="">Passwort zurücksetzen</h2>
                     </div>
@@ -11,26 +10,35 @@
                         <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
                             <div class="form-area pt-3">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Neues Passwort</span>
-                                    </div>
-                                    <input type="password" class="form-control" placeholder="" aria-label=""
-                                        aria-describedby="basic-addon1" formControlName="password" required>
-                                    <div class="invalid-feedback">
-                                        E-Mail Adresse muss angegeben werden
-                                    </div>
+                                    <mat-form-field fxFlex="100">
+                                        <mat-label>
+                                            Passwort
+                                        </mat-label>
+                                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                        <button mat-icon-button type="button" matSuffix (click)="hide = !hide"
+                                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </button>
+                                        <mat-error *ngIf="formData.controls.password.status === 'INVALID'">Passwort muss 8
+                                            Zeichen haben, aus Groß-, Kleinbuchstaben, Zahlen und Sonderzeichen bestehen
+                                        </mat-error>
+                                    </mat-form-field>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Passwort wiederholen</span>
-                                    </div>
-                                    <input type="password" class="form-control" placeholder="" aria-label=""
-                                        aria-describedby="basic-addon1" formControlName="confirm_password" required>
-                                    <div class="invalid-feedback">
-                                        E-Mail Adresse muss angegeben werden
-                                    </div>
+                                    <mat-form-field fxFlex="100">
+                                        <mat-label>
+                                            Passwort wiederholen
+                                        </mat-label>
+                                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirm_password"
+                                            required>
+                                        <button mat-icon-button type="button" matSuffix (click)="hide = !hide"
+                                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </button>
+                                        <mat-error *ngIf="formData.controls.confirm_password.status === 'INVALID'">Passwort muss
+                                            wiederholt werden</mat-error>
+                                    </mat-form-field>
                                 </div>
-
                                 <div *ngIf="passwordErr != null" class="alert alert-danger" role="alert">{{passwordErr}}
                                 </div>
                                 <button type="submit" class="btn btn-secondary btn-block">Senden</button>
@@ -60,5 +68,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
+

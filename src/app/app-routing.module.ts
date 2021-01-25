@@ -14,6 +14,10 @@ import { WalletSetGuard } from './services/walletSet.guard';
 import {LoginComponent} from './login/login.component';
 import {OptionsComponent} from './options/options.component';
 
+/**
+ * @AlexWirthAAU
+ * Handeln der Routen unter Verwendung von Guards (wo notwendig).
+ */
 
 
 const routes: Routes = [

@@ -4,6 +4,13 @@ import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 import {User} from '../model/user';
 
+/**
+ * @AlexWirthAAU
+ * Stellt sämtliche Methoden zur Verfügung, die Infos über den User geben.
+ * Unter anderem wird der jwt verwendet um festzustellen ob der User eingeloggt ist. Ist der Token abgelaufen wird der user ausgeloggt.
+ * Der User kann dann über getUser aufgerufen werden. 
+ */
+
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +57,8 @@ export class AuthService {
     if (tokeninfo && currentTime >= tokeninfo.exp) {
       this.logout();
       return false;
+    } else if (tokeninfo && currentTime < tokeninfo.exp) {
+      return true;
     }
     return localStorage.getItem('access_token') !== null;
   }
@@ -59,9 +68,11 @@ export class AuthService {
     var currentTime = +new Date / 1000;
     if(tokeninfo && currentTime >= tokeninfo.exp) {
       return false;
-    } else {
+    } else if (tokeninfo && currentTime < tokeninfo.exp) {
       return true;
     }
+
+    return token === null;
   }
 
   getDecodedAccessToken(token: string): any {

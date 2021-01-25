@@ -4,6 +4,13 @@ import {ApiService} from '../services/api.service';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
 
+/**
+ * @AlexWirthAAU
+ * Login Komponente sendet Daten zum Server und überpüft ob sie richtig sind.
+ * FormValidation prüft nur ob Inputs leer sind.
+ * Stimmen die Daten nicht, wird ausgegeben, dass die Zugangsdaten falsch sind.
+ */
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

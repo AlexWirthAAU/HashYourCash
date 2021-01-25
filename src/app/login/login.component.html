@@ -1,61 +1,64 @@
 <div>
-   
-        <div class="row">
-            <div class="col-xl-12">
-                <div>
-                    <div class="single-login">
-                        <img [src]=logo>
-                    </div>
-                    <div class="text-center">
-                        <img src="">
-                        <h2>HashYourCash</h2>
-                    </div>
-                    <div class="text-center">
-                        <p class="subtitle">Tracke deine Einnahmen und Ausgaben</p>
-                    </div>
-                    
-                    <div class="text-center pt-1 mb-20">
-                        <h2 class="">Anmelden</h2>
-                    </div>
-
-                    <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
-                        <div class="form-area pt-3">
-                            <div class="input-group mb-3">
-                                <mat-form-field fxFlex="100">
-                                    <mat-label>
-                                      E-Mail Adresse
-                                    </mat-label>
-                                    <input matInput type="email" formControlName="email" required>
-                                    <mat-error *ngIf="formData.controls.email.status === 'INVALID'">E-Mail Adresse muss angegeben werden</mat-error>
-                                  </mat-form-field>
-                            </div>
-                            <div class="input-group mb-3">
-                                <mat-form-field fxFlex="100">
-                                    <mat-label>
-                                      Passwort
-                                    </mat-label>
-                                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
-                                    <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                    </button>
-                                    <mat-error *ngIf="formData.controls.password.status === 'INVALID'">Passwort muss angegeben werden</mat-error>
-                                  </mat-form-field>
-                            </div>
-                            <div *ngIf="wrongPassword != null" class="alert alert-danger" role="alert">{{wrongPassword}}</div>
-                            <button type="submit" class="btn login btn-block">Einloggen</button>
-                            <div style="text-align: center">
-                                <a class="text-center pt-3" [routerLink]="'/forgotpw'">Passwort vergessen?</a>
-                            </div>
-                            <br>
-                            <h3 class="text-center pt-3">Du besitzt noch kein Konto?</h3>
-                            <div style="text-align: center">
-                                <a class="text-center pt-3" [routerLink]="'/register'">...dann kannst du dich hier registrieren
-                                 </a><i class="fa fa-sign-in"></i>
-                            </div>
-                        </div>
-                    </form>
+    <div class="row">
+        <div class="col-xl-12">
+            <div>
+                <div class="single-login">
+                    <img [src]=logo>
                 </div>
+                <div class="text-center">
+                    <img src="">
+                    <h2>HashYourCash</h2>
+                </div>
+                <div class="text-center">
+                    <p class="subtitle">Tracke deine Einnahmen und Ausgaben</p>
+                </div>
+
+                <div class="text-center pt-1 mb-20">
+                    <h2 class="">Anmelden</h2>
+                </div>
+
+                <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
+                    <div class="form-area pt-3">
+                        <div class="input-group mb-3">
+                            <mat-form-field fxFlex="100">
+                                <mat-label>
+                                    E-Mail Adresse
+                                </mat-label>
+                                <input matInput type="email" formControlName="email" required>
+                                <mat-error *ngIf="formData.controls.email.status === 'INVALID'">E-Mail Adresse muss
+                                    angegeben werden</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="input-group mb-3">
+                            <mat-form-field fxFlex="100">
+                                <mat-label>
+                                    Passwort
+                                </mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                <button mat-icon-button type="button" matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="formData.controls.password.status === 'INVALID'">Passwort muss
+                                    angegeben werden</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div *ngIf="wrongPassword != null" class="alert alert-danger" role="alert">{{wrongPassword}}
+                        </div>
+                        <button type="submit" class="btn login btn-block">Einloggen</button>
+                        <div style="text-align: center">
+                            <a class="text-center pt-3" [routerLink]="'/forgotpw'">Passwort vergessen?</a>
+                        </div>
+                        <br>
+                        <h3 class="text-center pt-3">Du besitzt noch kein Konto?</h3>
+                        <div style="text-align: center">
+                            <a class="text-center pt-3" [routerLink]="'/register'">...dann kannst du dich hier
+                                registrieren
+                            </a><i class="fa fa-sign-in"></i>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-
+    </div>
 </div>
