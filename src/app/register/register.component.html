@@ -1,89 +1,92 @@
-
-        <div class="row">
-            <div class="col-xl-12">
-                <div>
-                    <div class="text-center mb-20">
-                        <div class="single-login">
-                            <img [src]=logo>
-                        </div>
-                        <h2>Registrierung</h2>
-                        <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()"
-                            [ngClass]="{'was-validated':formValidation == true}">
-                            <div class="form-area pt-3">
-                                <div class="input-group mb-3">
-                                <mat-form-field fxFlex="100">
-                                    <mat-label>
-                                      Vorname
-                                    </mat-label>
-                                    <input matInput type="text" formControlName="first_name" required>
-                                  </mat-form-field>
-                                    <div class="invalid-feedback">
-                                        Vorname muss angegeben werden
-                                    </div>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <mat-form-field fxFlex="100">
-                                        <mat-label>
-                                          Nachname
-                                        </mat-label>
-                                        <input matInput type="text" formControlName="last_name" required>
-                                      </mat-form-field>
-                                    <div class="invalid-feedback">
-                                        Nachname muss angegeben werden
-                                    </div>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <mat-form-field fxFlex="100">
-                                        <mat-label>
-                                          E-Mail Adresse
-                                        </mat-label>
-                                        <input matInput type="email" formControlName="email" required>
-                                      </mat-form-field>
-                                    <div class="invalid-feedback">
-                                        E-Mail Adresse muss angegeben werden
-                                    </div>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <mat-form-field fxFlex="100">
-                                        <mat-label>
-                                          Passwort
-                                        </mat-label>
-                                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
-                                        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                      </button>
-                                      </mat-form-field>
-                                    <div class="invalid-feedback">
-                                        Passwort muss angegeben werden
-                                    </div>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <mat-form-field fxFlex="100">
-                                        <mat-label>
-                                          Passwort wiederholen
-                                        </mat-label>
-                                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirm_password" required>
-                                        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                      </button>
-                                      </mat-form-field>
-                                    <div class="invalid-feedback">
-                                        Passwort muss wiederholt werden
-                                    </div>
-                                </div>
-                                <div *ngIf="passwordErr != null" class="alert alert-danger" role="alert">{{passwordErr}}
-                                </div>
-                                <div *ngIf="emailErr != null" class="alert alert-danger" role="alert">{{emailErr}}</div>
-                                <button type="submit" class="btn register btn-block">Jetzt registrieren</button>
-                                <br>
-                                <h3 class="text-center pt-3">Bereits registriert?</h3>
-                                <div style="text-align: center">
-                                    <a class="text-center pt-3" style="font-size:1.2em;"
-                                        [routerLink]="'/login'">...dann kannst du dich hier einloggen </a><i class="fa fa-sign-in"></i>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+<div class="row">
+    <div class="col-xl-12">
+        <div>
+            <div class="text-center mb-20">
+                <div class="single-login">
+                    <img [src]=logo>
                 </div>
+                <h2>Registrierung</h2>
+                <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()"
+                    [ngClass]="{'was-validated':formValidation == true}">
+                    <div class="form-area pt-3">
+                        <div class="input-group mb-3">
+                            <mat-form-field fxFlex="100">
+                                <mat-label>
+                                    Vorname
+                                </mat-label>
+                                <input matInput type="text" formControlName="first_name" required>
+                                <mat-error *ngIf="formData.controls.first_name.status === 'INVALID'">Vorname muss
+                                    angegeben werden</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="input-group mb-3">
+                            <mat-form-field fxFlex="100">
+                                <mat-label>
+                                    Nachname
+                                </mat-label>
+                                <input matInput type="text" formControlName="last_name" required>
+                                <mat-error *ngIf="formData.controls.last_name.status === 'INVALID'">Nachname muss
+                                    angegeben werden</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="input-group mb-3">
+                            <mat-form-field fxFlex="100">
+                                <mat-label>
+                                    E-Mail Adresse
+                                </mat-label>
+                                <input matInput type="email" formControlName="email" required>
+                                <mat-error *ngIf="formData.controls.last_name.status === 'INVALID'">E-Mail Adresse muss
+                                    angeben werden</mat-error>
+                            </mat-form-field>
+                            <div class="invalid-feedback">
+                                E-Mail Adresse muss angegeben werden
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <mat-form-field fxFlex="100">
+                                <mat-label>
+                                    Passwort
+                                </mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                <button mat-icon-button type="button" matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="formData.controls.password.status === 'INVALID'">Passwort muss 8
+                                    Zeichen haben, aus Groß-, Kleinbuchstaben, Zahlen und Sonderzeichen bestehen
+                                </mat-error>
+                            </mat-form-field>
+                            <div class="invalid-feedback">
+                                Passwort muss angegeben werden
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <mat-form-field fxFlex="100">
+                                <mat-label>
+                                    Passwort wiederholen
+                                </mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirm_password"
+                                    required>
+                                <button mat-icon-button type="button" matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="formData.controls.confirm_password.status === 'INVALID'">Passwort muss
+                                    wiederholt werden</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div *ngIf="passwordErr != null" class="alert alert-danger" role="alert">{{passwordErr}}</div>
+                        <div *ngIf="emailErr != null" class="alert alert-danger" role="alert">{{emailErr}}</div>
+                        <button type="submit" class="btn register btn-block">Jetzt registrieren</button>
+                        <br>
+                        <h3 class="text-center pt-3">Bereits registriert?</h3>
+                        <div style="text-align: center">
+                            <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/login'">...dann kannst
+                                du dich hier einloggen </a><i class="fa fa-sign-in"></i>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
+</div>
