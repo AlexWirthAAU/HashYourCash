@@ -9,6 +9,11 @@ import {Wallet, InitialP} from '../model/wallet';
 import {Payment} from '../model/payment';
 import {MatSnackBar,MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
+/* @Zoë
+Komponente um Wallets zu erstellen, initialisieren, 
+löschen und zu bearbeiten
+*/
+
 @Component({
   selector: 'app-wallets',
   templateUrl: './wallets.component.html',

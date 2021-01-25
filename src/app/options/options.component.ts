@@ -6,6 +6,10 @@ import {AuthService} from '../services/auth.service';
 import {MatSnackBar,MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import {Password} from '../model/options';
 
+/* @Zoë
+Komponente um UserMail, und User PW zu ändern, und sich auszuloggen
+*/
+
 @Component({
   selector: 'app-options',
   templateUrl: './options.component.html',
