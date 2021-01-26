@@ -3,7 +3,7 @@
 
 HashYourCash ist eine im Zuge des Kurses Webtechnologien (WS2020/21) entwickelte Webapplikation zum Tracken von Einnahmen und Ausgaben.
 
-## Team:
+## Team
   * Goja Beatrice
   * Haack Zoë
   * Siebert Jana
@@ -16,33 +16,30 @@ HashYourCash ist eine im Zuge des Kurses Webtechnologien (WS2020/21) entwickelte
   * Einloggen und speichern des erzeugten JWT
   * Passwort vergessen Funktion
   * Integration von Sendgrid
-#### Einloggen:  
-Der bereits registrierte Benutzer meldet sich mit seiner E-Mail Adressen und Passwort an. 
+#### Einloggen
+Der bereits registrierte Benutzer meldet sich mit seiner E-Mail-Adresse und Passwort an. 
 
-#### Neuen Account erstellen:  
+#### Neuen Account erstellen
 Der Benutzer wird auf eine neue Seite verwiesen. Dort gibt er seine Benutzerdaten ein. Wenn alle Anforderungen erfüllt wurden, bekommt der Benutzer eine E-Mail worin die weitere Vorgehensweise beschrieben ist. 
 
-#### Passwort vergessen: 
-Der Benutzer wird aufgefordert seine E-Mail Adresse anzugeben. Danach wird ein Mail gesendet in welcher der weitere Vorgang beschrieben ist. 
+#### Passwort vergessen
+Der Benutzer wird aufgefordert seine E-Mail-Adresse anzugeben. Danach wird eine E-Mail gesendet in welcher der weitere Vorgang beschrieben ist. 
 
 ---
 ### Startseite - Profil (Zoë Haack)
-Der Benutzer kann Wallets erstellen. Bei der Erstellung eines neuen Wallets wird nach dem Wallet Namen, einer Beschreibung und dem darin enthaltenen Betrag gefragt. Nach der Erstellung wird das Wallet mit den Anderen Wallets in einer Liste angezeigt. Jedes Wallet hat die Optionen: Bearbeiten, Gehe zum Wallet und Löschen.
+Der Benutzer kann Wallets erstellen. Bei der Erstellung eines neuen Wallets wird nach dem Wallet Namen, einer Beschreibung und dem darin enthaltenen Betrag gefragt.
 
-#### Gehe zu Wallet:  
-Der Benutzer wird auf die Seite weiter geleitet auf der, der Inhalt des Wallets aufgeschlüsselt zu sehen ist. Der Benutzer hat die Möglichkeit eine „Zahlung hinzufügen“.
+#### Wallet  
+Nach der Erstellung wird das Wallet mit den anderen Wallets in einer Liste angezeigt. Jedes Wallet hat die Optionen: Bearbeiten, Gehe zum Wallet und Löschen.
 
 ---
-### Zahlung (Jana Siebert)
+### Zahlungen (Jana Siebert)
+
+#### Gehe zu Zahlungen
+Der Benutzer wird innerhalb des Wallets auf die Seite weiter geleitet auf der die Buchungen des Wallets aufgeschlüsselt zu sehen sind. Der Benutzer hat die Möglichkeit eine neue Zahlung hinzu zu fügen.
 
 #### Hinzufügen
-Es wird nach den Attributen der Zahlung gefragt: Ein – Auszahlung, Betrag, Kategorie, Zahlungsgrund und Kommentar. Falls der Benutzer keine Zahlung hinzufügen möchte, kann er auf zurück klicken, woraufhin er wieder zum Wallet gelangt oder mit Zahlung verbuchen fortfahren, wobei die Zahlung auf der Liste im Wallet aufscheint. 
-
-#### Bearbeiten
-Der Benutzer kann den Gelbetrag, der sich im Walltet befindet, ändern und ein Kommentar hinzufügen bzw. ändern. 
-
-#### Löschen 
-Wallet wird gelöscht. 
+Es wird nach den Attributen der Zahlung gefragt: Ein- oder Auszahlung, Betrag, Kategorie, Zahlungsgrund und Kommentar. Falls der Benutzer keine Zahlung hinzufügen möchte, kann er auf zurück klicken, woraufhin er wieder zum Wallet gelangt oder mit Zahlung verbuchen fortfahren, wobei die Zahlung in der Liste des Wallets aufscheint.
 
 ---
 ### Statistiken (Alex Wirth) 
@@ -52,4 +49,4 @@ Es werden Ein – und Auszahlungen im Balken bzw. Kreisdiagramm dargestellt. Es 
 
 ---
 ### Währungsrechner (Beatrice Goja) 
-Der Benutzer hat die Möglichkeit verschiedene Währungen umzurechnen. Auch wird der Preis von Bitcoin sowie 5 Währungspaare direkt in real time angezeigt und automatisch aktualisiert. 
+Der Benutzer hat die Möglichkeit verschiedene Währungen umzurechnen. Auch wird der Preis von Bitcoin sowie 5 Währungspaaren direkt in real time angezeigt und automatisch aktualisiert. 
