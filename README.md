@@ -8,7 +8,7 @@ HashYourCash ist eine im Zuge des Kurses Webtechnologien (WS2020/21) entwickelte
   * Haack Zoë
   * Siebert Jana
   * Wirth Alex
-  
+---
 ## Aufteilung der Funktionalitäten
 
 ### Registrieren und Einloggen (Alex Wirth)
@@ -25,12 +25,14 @@ Der Benutzer wird auf eine neue Seite verwiesen. Dort gibt er seine Benutzerdate
 #### Passwort vergessen: 
 Der Benutzer wird aufgefordert seine E-Mail Adresse anzugeben. Danach wird ein Mail gesendet in welcher der weitere Vorgang beschrieben ist. 
 
+---
 ### Startseite - Profil (Zoë Haack)
 Der Benutzer kann Wallets erstellen. Bei der Erstellung eines neuen Wallets wird nach dem Wallet Namen, einer Beschreibung und dem darin enthaltenen Betrag gefragt. Nach der Erstellung wird das Wallet mit den Anderen Wallets in einer Liste angezeigt. Jedes Wallet hat die Optionen: Bearbeiten, Gehe zum Wallet und Löschen.
 
 #### Gehe zu Wallet:  
 Der Benutzer wird auf die Seite weiter geleitet auf der, der Inhalt des Wallets aufgeschlüsselt zu sehen ist. Der Benutzer hat die Möglichkeit eine „Zahlung hinzufügen“.
 
+---
 ### Zahlung (Jana Siebert)
 
 #### Hinzufügen
@@ -42,10 +44,12 @@ Der Benutzer kann den Gelbetrag, der sich im Walltet befindet, ändern und ein K
 #### Löschen 
 Wallet wird gelöscht. 
 
+---
 ### Statistiken (Alex Wirth) 
 Im Wallet kann der Benutzer seine Statistiken ansehen: 
 
 Es werden Ein – und Auszahlungen im Balken bzw. Kreisdiagramm dargestellt. Es kann eine spezielle Kategorie so wie Zeitraum bestimmt werden. 
 
+---
 ### Währungsrechner (Beatrice Goja) 
 Der Benutzer hat die Möglichkeit verschiedene Währungen umzurechnen. Auch wird der Preis von Bitcoin sowie 5 Währungspaare direkt in real time angezeigt und automatisch aktualisiert. 
