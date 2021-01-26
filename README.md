@@ -1,5 +1,5 @@
 
-# HashYourCash
+<p align="center"><img src="https://github.com/AlexWirthAAU/HashYourCash/blob/main/src/assets/images/Logo_Banner_integrate.png" height="200"></p>
 
 HashYourCash ist eine im Zuge des Kurses Webtechnologien (WS2020/21) entwickelte Webapplikation zum Tracken von Einnahmen und Ausgaben.
 
