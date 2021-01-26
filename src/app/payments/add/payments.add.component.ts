@@ -6,7 +6,9 @@ import {Payment} from '../../model/payment';
 import {tap} from 'rxjs/operators';
 import {Category} from '../../model/category';
 import {WalletService} from '../../services/wallet.service';
-import {MatSnackBar,MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+
+// Zahlung hinzufügen Formular
 
 @Component({
   selector: 'app-payments-add',
@@ -14,6 +16,7 @@ import {MatSnackBar,MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition} f
   styleUrls: ['./payments.add.component.css']
 })
 export class PaymentsAddComponent implements OnInit{
+  amountPattern = /^\d*\.?\d{0,2}$/g; // positive Zahl mit max. zwei Nachkommastellen
   paymentForm: any;
   categories: Category[];
   walletId: number;
@@ -27,7 +30,7 @@ export class PaymentsAddComponent implements OnInit{
     private router: Router,
     public route: ActivatedRoute,
     public walletService: WalletService,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ){
     this.route.params.subscribe(
       params => {
@@ -36,16 +39,16 @@ export class PaymentsAddComponent implements OnInit{
     );
     this.paymentForm = this.fb.group({
       type: ['', Validators.required],
-      amount: ['', Validators.required],
+      amount: ['', [Validators.required, Validators.pattern(this.amountPattern)]],
       description: [''],
       comment: [''],
-      period: [1], //  TODO implement!
+      period: [1],
       category: [''],
     });
   }
 
   onSubmit() {
-    var payment: Payment = {
+    const payment: Payment = {
       type: this.paymentForm.value.type,
       amount: this.paymentForm.value.amount,
       description: this.paymentForm.value.description,
@@ -56,7 +59,7 @@ export class PaymentsAddComponent implements OnInit{
       entry_date: new Date(),
     };
 
-    if(this.paymentForm.value.type === 'in') {
+    if (this.paymentForm.value.type === 'in') {
       payment.c_id = 0;
     }
 
@@ -80,11 +83,11 @@ export class PaymentsAddComponent implements OnInit{
   }
 
   typeChange(type) {
-    if(type == "in") {
-      this.paymentForm.get('category').clearValidators()
+    if (type === 'in') {
+      this.paymentForm.get('category').clearValidators();
       this.paymentForm.get('category').updateValueAndValidity();
     } else {
-      this.paymentForm.get('category').setValidators([Validators.required])
+      this.paymentForm.get('category').setValidators([Validators.required]);
       this.paymentForm.get('category').updateValueAndValidity();
     }
   }
@@ -93,7 +96,7 @@ export class PaymentsAddComponent implements OnInit{
   }
 
   createSnackBar() {
-    this._snackBar.open('Zahlung wurde gespeichert', '', {
+    this.snackBar.open('Zahlung wurde gespeichert', '', {
       duration: 1500,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

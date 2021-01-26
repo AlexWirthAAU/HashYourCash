@@ -124,7 +124,7 @@ export class WalletsComponent implements OnInit {
     );
   }
 
-  //Funktion um das Wallet mit der ersten Zahlung zu initialisieren 
+  // Funktion um das Wallet mit der ersten Zahlung zu initialisieren
   firstPayment(elem):void {
     if(elem.is_initiated === false){
     const initialP: InitialP = {

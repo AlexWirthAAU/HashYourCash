@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {ApiService} from '../../services/api.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {Payment} from '../../model/payment';
 import {AuthService} from '../../services/auth.service';
 import {switchMap, tap} from 'rxjs/operators';
 
+// Liste der Zahlungen je Wallet
 
 @Component({
   selector: 'app-payments-overview',
@@ -14,7 +14,6 @@ import {switchMap, tap} from 'rxjs/operators';
   styleUrls: ['./payments.overview.component.css']
 })
 export class PaymentsOverviewComponent implements OnInit {
-  faPlus = faPlus;
   walletId: number;
 
   dataSource = new MatTableDataSource<Payment>();
@@ -60,10 +59,9 @@ export class PaymentsOverviewComponent implements OnInit {
        this.auth.getUser()?.u_id,
        this.walletId).subscribe(data => {
          this.dataSource.data = data;
-       }, 
+       },
        error => {
         this.router.navigate(['/wallets']);
-       })
-
+       });
   }
 }

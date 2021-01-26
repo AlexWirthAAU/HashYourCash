@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
@@ -28,6 +28,10 @@ import {MaterialModule} from './material.module';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { CurrencyTickerstComponent } from './converter/currency-tickerst/currency-tickerst.component';
 import { OptionsComponent } from './options/options.component';
+import { registerLocaleData } from '@angular/common';
+import localeDE from '@angular/common/locales/de';
+
+registerLocaleData(localeDE);
 
 @NgModule({
   declarations: [
@@ -62,7 +66,7 @@ import { OptionsComponent } from './options/options.component';
     MatRadioModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: 'de'}, {provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

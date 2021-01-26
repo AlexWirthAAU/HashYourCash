@@ -15,7 +15,7 @@ import {throwError} from 'rxjs';
 })
 export class AppComponent {
   title = 'HashYourCash';
-  showMenu: boolean = true;
+  showMenu = true;
   contentClass: string;
   modalReference: any;
   faWallet = faWallet;
@@ -39,7 +39,7 @@ export class AppComponent {
       this.walletName = currentData.name;
       this.walletAmount = currentData.amount;
     });
-    console.log(this.router.url)
+    console.log(this.router.url);
   }
 
   resetWData() {
