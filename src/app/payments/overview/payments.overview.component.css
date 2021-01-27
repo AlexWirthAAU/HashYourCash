@@ -15,14 +15,27 @@ table {
   padding: 8px 8px 8px 0;
 }
 
-.test{
-  display:inline
+.mat-column-type {
+  width: 80px;
 }
 
-.add{
+.mat-column-amount {
+  width: 100px;
+}
+
+.type-out {
+  color: red;
+}
+
+.type-in {
+  color: limegreen;
+}
+
+.add {
   color: #064d6e;
   border-color: #064d6e;
 }
+
 .add:hover {
   color: #fff;
   background-color: #064d6e;

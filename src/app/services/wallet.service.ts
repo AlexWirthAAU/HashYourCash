@@ -1,6 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 
+/* @Zoë
+Service um mit den spezifischen Walletdaten (insbesondere Wallet Id) 
+in anderen Komponenten arbeiten zu können
+*/
+
 @Injectable({
   providedIn: 'root'
 })
