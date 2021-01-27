@@ -66,6 +66,9 @@
                         <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </button>
+                      <mat-error *ngIf="pwData.controls.newPw.status === 'INVALID'">Passwort muss 8
+                        Zeichen haben, aus Groß-, Kleinbuchstaben, Zahlen und Sonderzeichen bestehen
+                    </mat-error>
                       </mat-form-field>
                       <mat-form-field>
                         <mat-label>

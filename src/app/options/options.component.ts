@@ -41,7 +41,7 @@ export class OptionsComponent implements OnInit {
 
     this.pwData = new FormGroup({
       oldPw: new FormControl('', Validators.required),
-      newPw: new FormControl('', Validators.required),
+      newPw: new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
       newPw_confirm: new FormControl('', Validators.required),
   })
   }
