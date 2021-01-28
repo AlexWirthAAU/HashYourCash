@@ -16,7 +16,7 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
   styleUrls: ['./payments.add.component.css']
 })
 export class PaymentsAddComponent implements OnInit{
-  amountPattern = /^\d*\.?\d{0,2}$/g; // positive Zahl mit max. zwei Nachkommastellen
+  amountPattern = /^\d+(\.\d{0,2})?$/; // positive Zahl mit max. zwei Nachkommastellen
   paymentForm: any;
   categories: Category[];
   walletId: number;
