@@ -26,8 +26,12 @@ Der Benutzer wird auf eine neue Seite verwiesen. Dort gibt er seine Benutzerdate
 Der Benutzer wird aufgefordert seine E-Mail-Adresse anzugeben. Danach wird eine E-Mail gesendet in welcher der weitere Vorgang beschrieben ist. 
 
 ---
-### Startseite - Profil (Zoë Haack)
+### Wallts & Profil (Zoë Haack)
 Der Benutzer kann Wallets erstellen. Bei der Erstellung eines neuen Wallets wird nach dem Wallet Namen, einer Beschreibung und dem darin enthaltenen Betrag gefragt.
+
+#### Profil bearbeiten
+Der Nutzer kann innerhalb seines Benutzerprofils seine Mail und sein Passwort ändern.
+Sobald ein Passwort geändert wird bekommt der User einen Hinweis per Mail für den Fall dass er diese Änderungen nicht vorgenommen hat.
 
 #### Wallet  
 Nach der Erstellung wird das Wallet mit den anderen Wallets in einer Liste angezeigt. Jedes Wallet hat die Optionen: Bearbeiten, Gehe zum Wallet und Löschen.
